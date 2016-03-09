@@ -19,6 +19,12 @@ import javax.swing.KeyStroke;
 @SuppressWarnings("serial")
 public class Hauptmenu extends JFrame implements ActionListener{
 
+	private static final int CODE_JAN = 53481744;
+	private static final int CODE_STI = 49435234;
+	private static final int CODE_STC = 49435233;
+	private static final int CODE_KUEHN = 9258369;
+	private static final String code = "codeEingeben";
+	private static final String code2 = "codeEingeben2";
 	static Movement m;
 	public JPanel p;
 	public JButton start;
@@ -78,10 +84,15 @@ public class Hauptmenu extends JFrame implements ActionListener{
 		menu.setMnemonic(KeyEvent.VK_A);
 		menu.getAccessibleContext().setAccessibleDescription("The only menu in this program that has items");
 		menuBar.add(menu);
+			
 		menuItem = new JMenuItem("Code Eingabe");
 		menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, ActionEvent.ALT_MASK));
 		menuItem.getAccessibleContext().setAccessibleDescription("This doesnt really do anything");
+		menuItem.setActionCommand(code);
+		menuItem.addActionListener(this);
+		p.add(menuItem);
 		menu.add(menuItem);
+		
 		menu.addSeparator();
 		ButtonGroup group = new ButtonGroup();
 		rbMenuItem = new JRadioButtonMenuItem("Schwer");
@@ -97,9 +108,13 @@ public class Hauptmenu extends JFrame implements ActionListener{
 		rbMenuItem.setMnemonic(KeyEvent.VK_O);
 		group.add(rbMenuItem);
 		menu.add(rbMenuItem);
+		
 		menu.addSeparator();
 		cbMenuItem = new JCheckBoxMenuItem("Musik AN/AUS");
 		cbMenuItem.setMnemonic(KeyEvent.VK_C);
+		cbMenuItem.setActionCommand(code2);
+		cbMenuItem.addActionListener(this);
+		p.add(cbMenuItem);
 		menu.add(cbMenuItem);
 		f.setJMenuBar(menuBar);
 		return menuBar;
@@ -117,12 +132,13 @@ public class Hauptmenu extends JFrame implements ActionListener{
 				e1.printStackTrace();
                         JOptionPane.showMessageDialog(null, "ERROR while Loading... \nPlease Try again later, or send an email to\ninfo.javaprograms@gmail.com");}
 		}
-		
-		
-		
-		
+
 		if(e.getSource() == laden){
-			int code = Integer.parseInt(JOptionPane.showInputDialog("Geben Sie einen Level - Code ein", "1234567890"));
+			String inputDialog = JOptionPane.showInputDialog("Geben Sie einen Level - Code ein", "1234567890");
+			if(inputDialog == null){
+				return;
+			}
+			int code = Integer.parseInt(inputDialog);
 			if(code == 9258369){//CODE KUEHN
 				try {
 					new Spiel(100, music, ".\\musik",".\\SAVE.txt");
@@ -180,6 +196,51 @@ public class Hauptmenu extends JFrame implements ActionListener{
 			if(a == JOptionPane.NO_OPTION){
 				JOptionPane.showMessageDialog(null, "Super! Dann auf ins Abenteuer!");
 			}
+		}
+		if(e.getActionCommand().equals(code)){
+			String inputDialog = JOptionPane.showInputDialog("Geben Sie einen Level - Code ein", "1234567890");
+			if(inputDialog == null){
+				return;
+			}
+			int code = Integer.parseInt(inputDialog);
+			if(code == CODE_KUEHN){
+				try {
+					new Spiel(100, music, ".\\musik",".\\SAVE.txt");
+					this.setVisible(false);
+				} catch (Exception e1) {}
+			}
+			if(code == CODE_STC){
+				try {
+					new Spiel(10, music, ".\\musik3",".\\MapSTCSTI.txt");
+					this.setVisible(false);
+				} catch (Exception e1) {}
+			}
+			if(code == CODE_STI){
+				try {
+					new Spiel(10, music, ".\\musik4",".\\MapSTCSTI.txt");
+					this.setVisible(false);
+				} catch (Exception e1) {}
+			}
+			if(code == CODE_JAN){
+				try {
+					new Spiel(10, music, ".\\musik2",".\\SAVE.txt");
+					this.setVisible(false);
+				} catch (Exception e1) {}
+			}else{
+				if(laden(code)){
+					try {
+						new Spiel(0, music, ".\\musik",".\\SAVE.txt");
+						this.setVisible(false);
+					} catch (Exception e1){}
+				}
+			}
+			
+		}
+		if(e.getActionCommand().equals(code2)){
+			
+		
+			JCheckBoxMenuItem checkBox = (JCheckBoxMenuItem)e.getSource(); 
+			music = checkBox.isSelected();
 		}
 	}
 
