@@ -18,9 +18,9 @@ public class WeltKarte extends JFrame {
 		this.m = m;	
 		
 		setLayout(new GridLayout(m.Ort.length,m.Ort[0].length));
-		for(int i = 0;i < m.Ort.length;i++){
-			for(int j = 0;j < m.Ort[0].length;j++){
-				add(createIcon(m.Ort[j][i]));
+		for(int i = 0;i < m.Ort[0].length;i++){
+			for(int j = 0;j < m.Ort.length;j++){
+				add(createIcon(m.Ort[i][j]));
 			}
 		}
 		
