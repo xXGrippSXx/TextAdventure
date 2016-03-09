@@ -13,7 +13,7 @@ public class Spiel {
 	public static boolean g = false;
 	String map;
 	
-	public Spiel(int geld, boolean musik, String link, String map1/*,int x1, int y1*/){
+	public Spiel(int geld, boolean musik, String link, String map1){
 		Movement m = new Movement();
 		map = map1;
 		System.out.println(map);
@@ -35,6 +35,11 @@ public class Spiel {
 		f1.timer.scheduleAtFixedRate(f1.task, 1000, 1000);
 	}
 	
+	private void VorgeschichteAnzeigen() {
+		new Vorgeschichte().anzeigen();
+		
+	}
+
 	public void lesen(Movement m) throws IOException{
 		
 		String temp1;

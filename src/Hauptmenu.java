@@ -54,13 +54,14 @@ public class Hauptmenu extends JFrame implements ActionListener{
 		f.setSize(400, 480);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setVisible(true);
-		//fERTIG
+		//Finished
 	}
 	//test
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == start){
 			try {
+				new Vorgeschichte().anzeigen();
                 @SuppressWarnings("unused")
 				Spiel spiel = new Spiel(0, music, ".\\musik",".\\SAVE.txt");
 				this.setVisible(false);
