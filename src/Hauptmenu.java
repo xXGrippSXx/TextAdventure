@@ -1,10 +1,19 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 
+import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JRadioButtonMenuItem;
+import javax.swing.KeyStroke;
 
 
 @SuppressWarnings("serial")
@@ -46,6 +55,7 @@ public class Hauptmenu extends JFrame implements ActionListener{
 		p.add(musik);
 		p.add(ende);
 		setContentPane(p);
+		createMenu(this);
 	}
 	
 	public static void main(String[] args) throws Exception {
@@ -54,8 +64,64 @@ public class Hauptmenu extends JFrame implements ActionListener{
 		f.setSize(400, 480);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setVisible(true);
-		//Finished
+		
 	}
+	public JMenuBar createMenu(Hauptmenu f){
+		JMenuBar menuBar;
+		JMenu menu, submenu;
+		JMenuItem menuItem;
+		JRadioButtonMenuItem rbMenuItem;
+		JCheckBoxMenuItem cbMenuItem;
+
+		menuBar = new JMenuBar();
+		menu = new JMenu("A Menu");
+		menu.setMnemonic(KeyEvent.VK_A);
+		menu.getAccessibleContext().setAccessibleDescription("The only menu in this program that has items");
+		menuBar.add(menu);
+		menuItem = new JMenuItem("A text-only menu item");
+		menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, ActionEvent.ALT_MASK));
+		menuItem.getAccessibleContext().setAccessibleDescription("This doesnt really do anything");
+		menu.add(menuItem);
+		menuItem = new JMenuItem("Both text and icon", new ImageIcon("coin.png"));
+		menuItem.setMnemonic(KeyEvent.VK_B);
+		menu.add(menuItem);
+		menuItem = new JMenuItem(new ImageIcon("coin.png"));
+		menu.setMnemonic(KeyEvent.VK_D);
+		menu.add(menuItem);
+		menu.addSeparator();
+		ButtonGroup group = new ButtonGroup();
+		rbMenuItem = new JRadioButtonMenuItem("A radio button menu item");
+		rbMenuItem.setSelected(true);
+		rbMenuItem.setMnemonic(KeyEvent.VK_R);
+		group.add(rbMenuItem);
+		menu.add(rbMenuItem);
+		rbMenuItem = new JRadioButtonMenuItem("Another one");
+		rbMenuItem.setMnemonic(KeyEvent.VK_O);
+		group.add(rbMenuItem);
+		menu.add(rbMenuItem);
+		menu.addSeparator();
+		cbMenuItem = new JCheckBoxMenuItem("A check box menu item");
+		cbMenuItem.setMnemonic(KeyEvent.VK_C);
+		menu.add(cbMenuItem);
+		cbMenuItem = new JCheckBoxMenuItem("Another one");
+		cbMenuItem.setMnemonic(KeyEvent.VK_H);
+		menu.add(cbMenuItem);
+		menu.addSeparator();
+		submenu = new JMenu("A sub menu");
+		submenu.setMnemonic(KeyEvent.VK_S);
+		menuItem = new JMenuItem("An item in the submenu");
+		menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_2, ActionEvent.ALT_MASK));
+		submenu.add(menuItem);
+		menuItem = new JMenuItem("Another item");
+		submenu.add(menuItem);
+		menu.add(submenu);
+		menu = new JMenu("Another Menu");
+		menu.setMnemonic(KeyEvent.VK_N);
+		menu.getAccessibleContext().setAccessibleDescription("This menu does nothing");
+		menuBar.add(menu);
+		f.setJMenuBar(menuBar);
+		return menuBar;
+	}	
 	//test
 	@Override
 	public void actionPerformed(ActionEvent e) {
