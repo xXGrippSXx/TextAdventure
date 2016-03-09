@@ -142,7 +142,7 @@ public class Hauptmenu extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == start) {
 			try {
-				//new Vorgeschichte().anzeigen();
+				/*new Vorgeschichte().anzeigen();*/      //WICHTIG FÜR STORY, SONST WIRD SIE NICHT ANGEZEIGT
 				@SuppressWarnings("unused")
 				Spiel spiel = new Spiel(0, music, ".\\musik", ".\\SAVE.txt");
 				this.setVisible(false);
