@@ -28,7 +28,7 @@ public class Vorgeschichte {
 		}
 		else
 		{
-			System.out.println("Textdatei nicht gefunden!");
+			System.out.println("Vorgeschichte nicht gefunden!");
 		}
 	}
 	

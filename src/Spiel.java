@@ -26,6 +26,11 @@ public class Spiel {
 			JOptionPane.showMessageDialog(null, "ERROR!!!!!!!!!!!");
 		}
 		
+		WeltKarte karte = new WeltKarte(m);
+		karte.setSize(200,200);
+		karte.setVisible(true);
+	
+		
 		Fenster f1 = new Fenster(m, geld, musik, link);
 		f1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f1.setSize(600, 600);
