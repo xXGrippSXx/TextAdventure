@@ -31,7 +31,7 @@ public class Spiel {
 		karte.setVisible(true);
 	
 		
-		Fenster f1 = new Fenster(m, geld, musik, link);
+		Fenster f1 = new Fenster(m, geld, musik, link,karte);
 		f1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f1.setSize(600, 600);
 		f1.setAlwaysOnTop(false);

@@ -48,7 +48,7 @@ public class Fenster extends JFrame implements ActionListener, KeyListener{
 	JButton ChooseMusik;
 	static JPanel subPanel;
 	Shop S = new Shop();
-	
+	private WeltKarte karte;
 	static int sec = 0;
 	public Timer timer = new Timer();
 	public TimerTask task = new TimerTask(){
@@ -60,11 +60,13 @@ public class Fenster extends JFrame implements ActionListener, KeyListener{
 			Text();
 		}};
 	
-	public Fenster(Movement m1, int geld, boolean music, String link) {
+	
+	public Fenster(Movement m1, int geld, boolean music, String link, WeltKarte karte) {
 		super("World Adventure");
 		addKeyListener(this);
 		titel = link;
 		musik = music;
+		this.karte=karte;
 		  subPanel = new JPanel();
 		P = new JPanel();
 		A = new JTextArea();
@@ -140,7 +142,7 @@ public class Fenster extends JFrame implements ActionListener, KeyListener{
 	
 	
 
-	public static void Text(){
+	public void Text(){
 		String Temp = "";
 		switch(m.getZiel(m.getPositionY(), m.getPositionX())){
 		case Start: Temp = "Start"; color = Color.DARK_GRAY; break;
@@ -165,7 +167,10 @@ public class Fenster extends JFrame implements ActionListener, KeyListener{
 		subPanel.setBackground(color);
 
 		A.setText(Temp + "\n" + m.getGebiet() + "\nX: " + m.getPositionX() + "\nY: " + m.getPositionY()  + "\nZeit: " + sec + "\n"+ CASH + " G");
+		karte.neuePosition(m.getPositionX(), m.getPositionY());
 	}
+	
+	
 	
 	public JPanel Shop() {
 		PanelShop = new JPanel();

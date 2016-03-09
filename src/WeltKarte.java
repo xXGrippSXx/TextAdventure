@@ -13,19 +13,23 @@ import javax.swing.JLabel;
 
 public class WeltKarte extends JFrame {
 	
+	private JLabel[][] ort;
 	private Movement m;
 	public WeltKarte(Movement m) {	
 		this.m = m;	
 		
 		setLayout(new GridLayout(m.Ort.length,m.Ort[0].length));
+		ort = new JLabel[m.Ort[0].length][m.Ort.length];
 		for(int i = 0;i < m.Ort[0].length;i++){
 			for(int j = 0;j < m.Ort.length;j++){
-				add(createIcon(m.Ort[i][j]));
+				JLabel icon = createIcon(m.Ort[i][j]);
+				add(icon);
+				ort[j][i] = icon;
 			}
 		}
 		
 	}
-	private Component createIcon(GelaendeTyp gelaendeTyp) {
+	private JLabel createIcon(GelaendeTyp gelaendeTyp) {
 		
 //		try {
 //			BufferedImage myPicture = ImageIO.read(new File("Desert.png"));
@@ -48,6 +52,12 @@ public class WeltKarte extends JFrame {
 		label.setOpaque(true);
 		return label;
 		
+		
+	}
+	public void neuePosition(int positionX, int positionY) {
+		
+		JLabel neuePosition = ort[positionX][positionY];
+		neuePosition.setText("X");
 		
 	}
 	
