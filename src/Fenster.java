@@ -284,7 +284,6 @@ public class Fenster extends JFrame implements ActionListener, KeyListener{
 			if(rnd == 5){
 				CASH++; 
 				System.out.println("DU HAST GELD GEFUNDEN"); 
-				JOptionPane.showMessageDialog(null, "DU HAST GELD GEKRIEGT!");
 			}
 		}
 	}
