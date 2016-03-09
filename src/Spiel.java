@@ -46,8 +46,8 @@ public class Spiel {
 			temp1 = Datei.readLine();
 			System.out.println(temp1);
 			for(int b = 0; b<20; b++){
-				String temp2 = temp1.substring(b, b+1);
-				if(temp2.equals("S")){
+				GelaendeTyp temp2 = GelaendeTyp.toGelaendeTyp (temp1.substring(b, b+1));
+				if(temp2==GelaendeTyp.Start){
 					x = a;
 					y = b;
 				}

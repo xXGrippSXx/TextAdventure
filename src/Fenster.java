@@ -57,6 +57,7 @@ public class Fenster extends JFrame implements ActionListener, KeyListener{
 		public void run() {
 			sec++;
 			System.out.println(sec);
+			Text();
 		}};
 	
 	public Fenster(Movement m1, int geld, boolean music, String link) {
@@ -142,15 +143,15 @@ public class Fenster extends JFrame implements ActionListener, KeyListener{
 	public static void Text(){
 		String Temp = "";
 		switch(m.getZiel(m.getPositionY(), m.getPositionX())){
-		case "S": Temp = "Start"; color = Color.DARK_GRAY; break;
-		case "E": Temp = "Ausgang";break;
-		case "T": Temp = "Stadt"; color = Color.ORANGE;break;
-		case "X": Temp = "Mauer"; break;
-		case "F": Temp = "Wald"; color = Color.GREEN;break;
-		case "=": Temp = "Weg"; color = Color.LIGHT_GRAY;break;
-		case "C": Temp = "Höhle"; color = Color.BLACK;break;
-		case "D": Temp = "Wüste"; color = Color.YELLOW;break;
-		case "M": Temp = "Berg"; color = Color.WHITE;break;
+		case Start: Temp = "Start"; color = Color.DARK_GRAY; break;
+		case Ziel: Temp = "Ausgang";break;
+		case Stadt: Temp = "Stadt"; color = Color.ORANGE;break;
+		case Wand: Temp = "Mauer"; break;
+		case Wald: Temp = "Wald"; color = Color.GREEN;break;
+		case Weg: Temp = "Weg"; color = Color.LIGHT_GRAY;break;
+		case Hoehle: Temp = "Höhle"; color = Color.BLACK;break;
+		case Wueste: Temp = "Wüste"; color = Color.YELLOW;break;
+		case Berg: Temp = "Berg"; color = Color.WHITE;break;
 		}
 		
 		if(Temp == "Höhle"){
