@@ -26,10 +26,9 @@ public class Spiel {
 			JOptionPane.showMessageDialog(null, "ERROR!!!!!!!!!!!");
 		}
 		
+		
+		
 		WeltKarte karte = new WeltKarte(m);
-		karte.setSize(200,200);
-		karte.setVisible(true);
-	
 		
 		Fenster f1 = new Fenster(m, geld, musik, link,karte);
 		f1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -38,6 +37,11 @@ public class Spiel {
 		f1.setResizable(true);
 		f1.setVisible(true);
 		f1.timer.scheduleAtFixedRate(f1.task, 1000, 1000);
+		
+		
+		karte.setSize(200,200);
+		karte.setLocation(f1.getLocation().x+600, karte.getLocation().y);
+		karte.setVisible(true);
 	}
 	
 	private void VorgeschichteAnzeigen() {
