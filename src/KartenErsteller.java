@@ -1,3 +1,5 @@
+import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -26,7 +28,7 @@ public class KartenErsteller extends JFrame implements
 	public JButton ziel;
 	public JButton weg;
 	public JButton stadt;
-	public JPanel p;
+	public JPanel panel;
 
 	public KartenErsteller() {
 
@@ -35,6 +37,16 @@ public class KartenErsteller extends JFrame implements
 		setSize(600, 600);
 		setLocation(50, 50);
 		setVisible(true);
+		setLayout(new FlowLayout());
+		add(getStart());
+		add(getWald());
+		add(getWand());
+		add(getBerg());
+		add(getHoehle());
+		add(getWueste());
+		add(getZiel());
+		add(getWeg());
+		add(getStadt());
 
 	}
 
@@ -66,7 +78,7 @@ public class KartenErsteller extends JFrame implements
 			System.out.println("weg");
 		}
 		if (e.getActionCommand().equals(AC_STADT)) {
-			System.out.println(stadt);
+			System.out.println("stadt");
 		}
 
 	}
@@ -76,6 +88,8 @@ public class KartenErsteller extends JFrame implements
 			wald = new JButton("Wald");
 			wald.setActionCommand(AC_WALD);
 			wald.addActionListener(this);
+			wald.setBackground(Color.GREEN);
+			wald.setForeground(Color.BLACK);
 		}
 		return wald;
 	}
@@ -85,7 +99,8 @@ public class KartenErsteller extends JFrame implements
 			start = new JButton("Start");
 			start.setActionCommand(AC_START);
 			start.addActionListener(this);
-			start.setBounds(120, 40, 160, 40);
+			start.setBackground(Color.CYAN);
+			start.setForeground(Color.BLACK);
 		}
 		return start;
 	}
@@ -95,9 +110,10 @@ public class KartenErsteller extends JFrame implements
 			wand = new JButton("Wand");
 			wand.setActionCommand(AC_WAND);
 			wand.addActionListener(this);
-			wand.setBounds(120, 40, 160, 40);
+			wand.setBackground(Color.BLACK);
+			wand.setForeground(Color.WHITE);
 		}
-		return start;
+		return wand;
 	}
 
 	public JButton getBerg() {
@@ -105,9 +121,10 @@ public class KartenErsteller extends JFrame implements
 			berg = new JButton("Berg");
 			berg.setActionCommand(AC_BERG);
 			berg.addActionListener(this);
-			berg.setBounds(120, 40, 160, 40);
+			berg.setBackground(Color.BLUE);
+			berg.setForeground(Color.BLACK);
 		}
-		return start;
+		return berg;
 	}
 
 	public JButton getHoehle() {
@@ -115,9 +132,10 @@ public class KartenErsteller extends JFrame implements
 			hoehle = new JButton("Höhle");
 			hoehle.setActionCommand(AC_HOEHLE);
 			hoehle.addActionListener(this);
-			hoehle.setBounds(120, 40, 160, 40);
+			hoehle.setBackground(Color.GRAY);
+			hoehle.setForeground(Color.BLACK);
 		}
-		return start;
+		return hoehle;
 	}
 
 	public JButton getWueste() {
@@ -125,9 +143,10 @@ public class KartenErsteller extends JFrame implements
 			wueste = new JButton("Wüste");
 			wueste.setActionCommand(AC_WUESTE);
 			wueste.addActionListener(this);
-			wueste.setBounds(120, 40, 160, 40);
+			wueste.setBackground(Color.YELLOW);
+			wueste.setForeground(Color.BLACK);
 		}
-		return start;
+		return wueste;
 	}
 
 	public JButton getZiel() {
@@ -135,9 +154,10 @@ public class KartenErsteller extends JFrame implements
 			ziel = new JButton("Ziel");
 			ziel.setActionCommand(AC_ZIEL);
 			ziel.addActionListener(this);
-			ziel.setBounds(120, 40, 160, 40);
+			ziel.setBackground(Color.WHITE);
+			ziel.setForeground(Color.BLACK);
 		}
-		return start;
+		return ziel;
 	}
 
 	public JButton getWeg() {
@@ -145,9 +165,10 @@ public class KartenErsteller extends JFrame implements
 			weg = new JButton("Weg");
 			weg.setActionCommand(AC_WEG);
 			weg.addActionListener(this);
-			weg.setBounds(120, 40, 160, 40);
+			weg.setBackground(Color.LIGHT_GRAY);
+			weg.setForeground(Color.BLACK);
 		}
-		return start;
+		return weg;
 	}
 
 	public JButton getStadt() {
@@ -155,9 +176,10 @@ public class KartenErsteller extends JFrame implements
 			stadt = new JButton("Stadt");
 			stadt.setActionCommand(AC_STADT);
 			stadt.addActionListener(this);
-			stadt.setBounds(120, 40, 160, 40);
+			stadt.setBackground(Color.ORANGE);
+			stadt.setForeground(Color.BLACK);
 		}
-		return start;
+		return stadt;
 	}
 
 }
