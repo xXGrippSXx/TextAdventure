@@ -28,6 +28,7 @@ public class Hauptmenu extends JFrame implements ActionListener {
 	private static final String AC_Schwer = "codeEingeben3";
 	private static final String AC_Mittel = "codeEingeben4";
 	private static final String AC_Leicht = "codeEingeben5";
+	private static final String AC_KARTE = "codeEingeben6";
 	static Movement m;
 	public JPanel p;
 	public JButton start;
@@ -139,6 +140,9 @@ public class Hauptmenu extends JFrame implements ActionListener {
 		menuItem = new JMenuItem("Kartenersteller");
 		menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_2, ActionEvent.ALT_MASK));
 		entwicklerOptionen.add(menuItem);
+		menuItem.setActionCommand(AC_KARTE);
+		menuItem.addActionListener(this);
+		menuItem.setToolTipText("Kartenersteller für Entwickler");
 		menu.add(entwicklerOptionen);
 		menuBar.add(menu);
 		f.setJMenuBar(menuBar);
@@ -314,6 +318,11 @@ public class Hauptmenu extends JFrame implements ActionListener {
 
 			aktuelleSchwierigkeit = Schwierigkeit.Leicht;
 			meldeAktuelleSchwierigkeit();
+
+		}
+		if (e.getActionCommand().equals(AC_KARTE)) {
+
+			new KartenErsteller();
 
 		}
 	}
