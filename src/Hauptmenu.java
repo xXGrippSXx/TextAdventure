@@ -283,7 +283,6 @@ public class Hauptmenu extends JFrame implements ActionListener {
 			} else if (code == CODE_42) {// CODE 42
 				try {
 					getEntwicklerOptionen().setVisible(true);
-					System.out.println("EntwicklerOptionen aktiviert");
 				} catch (Exception e1) {
 				}
 			} else {

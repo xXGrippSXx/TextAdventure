@@ -1,3 +1,3 @@
-//1. Menu sichtbar durch Code: production42 
+//1. Menu sichtbar durch Code: production42 //
 2. Karten ersteller programmieren.
-3. Karten ertseller ins Menu einbinden.
+//3. Karten ertseller ins Menu einbinden. //
