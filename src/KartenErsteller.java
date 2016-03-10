@@ -1,5 +1,6 @@
+import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -32,21 +33,29 @@ public class KartenErsteller extends JFrame implements
 
 	public KartenErsteller() {
 
+		JPanel panel = new JPanel();
+		panel.setLayout(new GridLayout(9, 1));
+		panel.add(getWald());
+		panel.add(getStart());
+		panel.add(getWand());
+		panel.add(getBerg());
+		panel.add(getHoehle());
+		panel.add(getWueste());
+		panel.add(getZiel());
+		panel.add(getWeg());
+		panel.add(getStadt());
+
+		JPanel pan = new JPanel();
+		pan.setLayout(new GridLayout(20, 20)); // Umbauen
+
 		setTitle("Kartenersteller");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(600, 600);
 		setLocation(50, 50);
 		setVisible(true);
-		setLayout(new FlowLayout());
-		add(getStart());
-		add(getWald());
-		add(getWand());
-		add(getBerg());
-		add(getHoehle());
-		add(getWueste());
-		add(getZiel());
-		add(getWeg());
-		add(getStadt());
+		setLayout(new BorderLayout());
+		add(panel, BorderLayout.EAST);
+		add(pan, BorderLayout.CENTER);
 
 	}
 
