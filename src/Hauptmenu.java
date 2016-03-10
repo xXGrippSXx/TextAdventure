@@ -3,7 +3,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
 import javax.swing.ButtonGroup;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JFrame;
@@ -20,6 +19,7 @@ import javax.swing.KeyStroke;
 public class Hauptmenu extends JFrame implements ActionListener {
 
 	private static final int CODE_JAN = 53481744;
+	private static final int CODE_42 = 424242;
 	private static final int CODE_STI = 49435234;
 	private static final int CODE_STC = 49435233;
 	private static final int CODE_KUEHN = 9258369;
@@ -35,6 +35,7 @@ public class Hauptmenu extends JFrame implements ActionListener {
 	public JButton ende;
 	public JButton laden;
 	public JButton musik;
+	private JMenu entwicklerOptionen;
 	static boolean music = true;
 	public String[] Codes = { "21543", "15946", "44568", "15357", "54545" };
 	private Schwierigkeit aktuelleSchwierigkeit = Schwierigkeit.Mittel;
@@ -133,8 +134,27 @@ public class Hauptmenu extends JFrame implements ActionListener {
 		cbMenuItem.addActionListener(this);
 		p.add(cbMenuItem);
 		menu.add(cbMenuItem);
+
+		menu.add(getEntwicklerOptionen());
+		menuItem = new JMenuItem("Kartenersteller");
+		menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_2, ActionEvent.ALT_MASK));
+		entwicklerOptionen.add(menuItem);
+		menu.add(entwicklerOptionen);
+		menuBar.add(menu);
 		f.setJMenuBar(menuBar);
 		return menuBar;
+
+	}
+
+	public JMenu getEntwicklerOptionen() {
+		if (entwicklerOptionen == null) {
+			entwicklerOptionen = new JMenu("Entwickler Einstellungen");
+			entwicklerOptionen.setMnemonic(KeyEvent.VK_A);
+			entwicklerOptionen.getAccessibleContext()
+					.setAccessibleDescription("Entwickler Einstellungen, nur für Entwickler!");
+			entwicklerOptionen.setVisible(false);
+		}
+		return entwicklerOptionen;
 	}
 
 	// test
@@ -142,7 +162,9 @@ public class Hauptmenu extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == start) {
 			try {
-				/*new Vorgeschichte().anzeigen();*/      //WICHTIG FÜR STORY, SONST WIRD SIE NICHT ANGEZEIGT
+				/* new Vorgeschichte().anzeigen(); */ // WICHTIG FÜR STORY,
+														// SONST WIRD SIE NICHT
+														// ANGEZEIGT
 				@SuppressWarnings("unused")
 				Spiel spiel = new Spiel(0, music, ".\\musik", ".\\SAVE.txt");
 				this.setVisible(false);
@@ -159,34 +181,34 @@ public class Hauptmenu extends JFrame implements ActionListener {
 				return;
 			}
 			int code = Integer.parseInt(inputDialog);
+			System.out.println("Code: " + code);
 			if (code == 9258369) {// CODE KUEHN
 				try {
 					new Spiel(100, music, ".\\musik", ".\\SAVE.txt");
 					this.setVisible(false);
 				} catch (Exception e1) {
 				}
-			}
-			if (code == 49435233) {// CODE STC
+			} else if (code == 49435233) {// CODE STC
 				try {
 					new Spiel(10, music, ".\\musik3", ".\\MapSTCSTI.txt");
 					this.setVisible(false);
 				} catch (Exception e1) {
 				}
-			}
-			if (code == 49435234) {// CODE STI
+			} else if (code == 49435234) {// CODE STI
 				try {
 					new Spiel(10, music, ".\\musik4", ".\\MapSTCSTI.txt");
 					this.setVisible(false);
 				} catch (Exception e1) {
 				}
-			}
-			if (code == 53481744) {// CODE JAN
+			} else if (code == 53481744) {// CODE JAN
 				try {
 					new Spiel(10, music, ".\\musik2", ".\\SAVE.txt");
 					this.setVisible(false);
 				} catch (Exception e1) {
 				}
-			} else {
+			}
+
+			else {
 				if (laden(code)) {
 					try {
 						new Spiel(0, music, ".\\musik", ".\\SAVE.txt");
@@ -235,25 +257,29 @@ public class Hauptmenu extends JFrame implements ActionListener {
 					this.setVisible(false);
 				} catch (Exception e1) {
 				}
-			}
-			if (code == CODE_STC) {
+			} else if (code == CODE_STC) {
 				try {
 					new Spiel(10, music, ".\\musik3", ".\\MapSTCSTI.txt");
 					this.setVisible(false);
 				} catch (Exception e1) {
 				}
-			}
-			if (code == CODE_STI) {
+			} else if (code == CODE_STI) {
 				try {
 					new Spiel(10, music, ".\\musik4", ".\\MapSTCSTI.txt");
 					this.setVisible(false);
 				} catch (Exception e1) {
 				}
-			}
-			if (code == CODE_JAN) {
+			} else if (code == CODE_JAN) {
 				try {
 					new Spiel(10, music, ".\\musik2", ".\\SAVE.txt");
 					this.setVisible(false);
+				} catch (Exception e1) {
+				}
+
+			} else if (code == CODE_42) {// CODE 42
+				try {
+					getEntwicklerOptionen().setVisible(true);
+					System.out.println("EntwicklerOptionen aktiviert");
 				} catch (Exception e1) {
 				}
 			} else {

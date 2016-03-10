@@ -20,19 +20,19 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-
-
 @SuppressWarnings("serial")
-public class Fenster extends JFrame implements ActionListener, KeyListener{
-	//BITTE ZEILE 177 ÜBERARBEITEN... FEHLER: Exception in thread "AWT-EventQueue-0" java.lang.NullPointerException at Fenster.actionPerformed(Fenster.java:177)
+public class Fenster extends JFrame implements ActionListener, KeyListener {
+	// BITTE ZEILE 177 ÜBERARBEITEN... FEHLER: Exception in thread
+	// "AWT-EventQueue-0" java.lang.NullPointerException at
+	// Fenster.actionPerformed(Fenster.java:177)
 	public JPanel PanelShop, KnöpfeAngebote, KnöpfeSteuer;
 	public JButton kaufen;
 	public JButton zurück;
 	public JButton[] angebote;
 	public static final int Angebote = 3;
-	public static final String[] preise = {"5", "15", "20"};
-	public static final String[] text = {".\\wood_sword.png", ".\\iron_sword.png", ".\\diamond_sword.png"};
-	public static final boolean[] schwerter = {false,false,false};
+	public static final String[] preise = { "5", "15", "20" };
+	public static final String[] text = { ".\\wood_sword.png", ".\\iron_sword.png", ".\\diamond_sword.png" };
+	public static final boolean[] schwerter = { false, false, false };
 	static int CASH = 0;
 	boolean shop = false;
 	boolean musik = true;
@@ -51,23 +51,23 @@ public class Fenster extends JFrame implements ActionListener, KeyListener{
 	private WeltKarte karte;
 	static int sec = 0;
 	public Timer timer = new Timer();
-	public TimerTask task = new TimerTask(){
+	public TimerTask task = new TimerTask() {
 
 		@Override
 		public void run() {
 			sec++;
 			System.out.println(sec);
 			Text();
-		}};
-	
-	
+		}
+	};
+
 	public Fenster(Movement m1, int geld, boolean music, String link, WeltKarte karte) {
 		super("World Adventure");
 		addKeyListener(this);
 		titel = link;
 		musik = music;
-		this.karte=karte;
-		  subPanel = new JPanel();
+		this.karte = karte;
+		subPanel = new JPanel();
 		P = new JPanel();
 		A = new JTextArea();
 		ShopKnopf = new JButton();
@@ -78,100 +78,121 @@ public class Fenster extends JFrame implements ActionListener, KeyListener{
 		ChooseMusik = new JButton("Musik wählen");
 		ChooseMusik.addActionListener(this);
 		P.add(ChooseMusik, BorderLayout.PAGE_END);
-		for(int i = 0; i < B.length; i++){
+		for (int i = 0; i < B.length; i++) {
 			B[i] = new JButton();
 			subPanel.add(B[i]);
 			B[i].setFont(new Font("ARIAL", Font.BOLD, 64));
 			B[i].setForeground(Color.ORANGE);
 			B[i].addActionListener(this);
 		}
-		
+
 		kMusik = new JButton();
-		if(music){
+		if (music) {
 			play(null, titel);
 			kMusik.setText(" MUSIK ON ");
 			kMusik.setForeground(Color.GREEN);
-		}else{
-			kMusik.setText(" MUSIK OFF "); 
+		} else {
+			kMusik.setText(" MUSIK OFF ");
 			kMusik.setForeground(Color.RED);
 		}
 		kMusik.setBackground(Color.BLUE);
 		kMusik.addActionListener(this);
 		kMusik.setFont(new Font("ARIAL", Font.BOLD, 32));
 		kMusik.setSize(600, 100);
-		
-		
+
 		P.setLayout(new BorderLayout());
 		P.add(kMusik, BorderLayout.PAGE_END);
 		subPanel.setLayout(new GridLayout(3, 3));
 		P.add(subPanel, BorderLayout.CENTER);
-		
+
 		P.add(ShopKnopf, BorderLayout.PAGE_START);
 		ShopKnopf.setSize(600, 50);
 		P.add(A, BorderLayout.LINE_END);
-		
+
 		A.setFont(new Font("ARIAL", Font.BOLD, 32));
 		A.setBackground(Color.BLUE);
 		A.setForeground(Color.ORANGE);
 		A.setEditable(false);
 		A.setFocusable(false);
-		
+
 		B[1].setBackground(Color.BLUE);
 		B[3].setBackground(Color.BLUE);
 		B[5].setBackground(Color.BLUE);
 		B[7].setBackground(Color.BLUE);
-		
+
 		B[1].setText("N");
 		B[5].setText("O");
 		B[3].setText("W");
 		B[7].setText("S");
-		
+
 		B[0].setVisible(false);
 		B[2].setVisible(false);
 		B[4].setVisible(false);
 		B[6].setVisible(false);
 		B[8].setVisible(false);
-		
-		ShopKnopf.setIcon(new ImageIcon(".\\Coin.png"));		
+
+		ShopKnopf.setIcon(new ImageIcon(".\\Coin.png"));
 		Text();
-		
+
 		setContentPane(P);
 		setResizable(true);
-		//Musik();
+		// Musik();
 	}
-	
-	
 
-	public void Text(){
+	public void Text() {
 		String Temp = "";
-		switch(m.getZiel(m.getPositionY(), m.getPositionX())){
-		case Start: Temp = "Start"; color = Color.DARK_GRAY; break;
-		case Ziel: Temp = "Ausgang";break;
-		case Stadt: Temp = "Stadt"; color = Color.ORANGE;break;
-		case Wand: Temp = "Mauer"; break;
-		case Wald: Temp = "Wald"; color = Color.GREEN;break;
-		case Weg: Temp = "Weg"; color = Color.LIGHT_GRAY;break;
-		case Hoehle: Temp = "Höhle"; color = Color.BLACK;break;
-		case Wueste: Temp = "Wüste"; color = Color.YELLOW;break;
-		case Berg: Temp = "Berg"; color = Color.WHITE;break;
+		switch (m.getZiel(m.getPositionY(), m.getPositionX())) {
+		case Start:
+			Temp = "Start";
+			color = Color.DARK_GRAY;
+			break;
+		case Ziel:
+			Temp = "Ausgang";
+			break;
+		case Stadt:
+			Temp = "Stadt";
+			color = Color.ORANGE;
+			break;
+		case Wand:
+			Temp = "Mauer";
+			break;
+		case Wald:
+			Temp = "Wald";
+			color = Color.GREEN;
+			break;
+		case Weg:
+			Temp = "Weg";
+			color = Color.LIGHT_GRAY;
+			break;
+		case Hoehle:
+			Temp = "Höhle";
+			color = Color.BLACK;
+			break;
+		case Wueste:
+			Temp = "Wüste";
+			color = Color.YELLOW;
+			break;
+		case Berg:
+			Temp = "Berg";
+			color = Color.WHITE;
+			break;
 		}
-		
-		if(Temp == "Höhle"){
-			if(!cave()){
+
+		if (Temp == "Höhle") {
+			if (!cave()) {
 				CASH += 50;
-			}else{
+			} else {
 				CASH = 0;
 			}
 		}
 		// 0,2,4,6,8
 		subPanel.setBackground(color);
 
-		A.setText(Temp + "\n" + m.getGebiet() + "\nX: " + m.getPositionX() + "\nY: " + m.getPositionY()  + "\nZeit: " + sec + "\n"+ CASH + " G");
+		A.setText(Temp + "\n" + m.getGebiet() + "\nX: " + m.getPositionX() + "\nY: " + m.getPositionY() + "\nZeit: "
+				+ sec + "\n" + CASH + " G");
 		karte.neuePosition(m.getPositionX(), m.getPositionY());
 	}
-	
-	
-	
+
 	public JPanel Shop() {
 		PanelShop = new JPanel();
 		KnöpfeAngebote = new JPanel();
@@ -179,7 +200,7 @@ public class Fenster extends JFrame implements ActionListener, KeyListener{
 		kaufen = new JButton("Kaufen");
 		zurück = new JButton("Zurück zum Spiel");
 		angebote = new JButton[Angebote];
-		for(int i = 0; i< angebote.length; i++){
+		for (int i = 0; i < angebote.length; i++) {
 			angebote[i] = new JButton();
 			angebote[i].setIcon(new ImageIcon(text[i]));
 			angebote[i].setBackground(Color.WHITE);
@@ -192,171 +213,173 @@ public class Fenster extends JFrame implements ActionListener, KeyListener{
 		KnöpfeSteuer.add(zurück);
 		PanelShop.add(KnöpfeAngebote);
 		PanelShop.add(KnöpfeSteuer);
-		return(PanelShop);
+		return (PanelShop);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(!shop){
-			if(e.getSource() == kMusik){
+		if (!shop) {
+			if (e.getSource() == kMusik) {
 				musik = !musik;
-				if(musik){
+				if (musik) {
 					play(null, titel);
 					kMusik.setText(" MUSIK ON ");
 					kMusik.setForeground(Color.GREEN);
-				}else{
+				} else {
 					stop(null, titel);
 					kMusik.setText(" MUSIK OFF ");
 					kMusik.setForeground(Color.RED);
 				}
 				requestFocus();
 			}
-			if(e.getSource() == B[1]){
+			if (e.getSource() == B[1]) {
 				m.geheTop();
 				geld();
 				Text();
 				requestFocus();
 			}
-			if(e.getSource() == ShopKnopf){
+			if (e.getSource() == ShopKnopf) {
 				setPanel(Shop());
 				shop = true;
 				validate();
 				requestFocus();
 			}
-			if(e.getSource() == B[3]){
+			if (e.getSource() == B[3]) {
 				m.geheLeft();
 				geld();
 				Text();
 				requestFocus();
 			}
-			if(e.getSource() == B[7]){
+			if (e.getSource() == B[7]) {
 				m.geheBot();
 				geld();
 				Text();
 				requestFocus();
 			}
-			if(e.getSource() == B[5]){
+			if (e.getSource() == B[5]) {
 				m.geheRight();
 				geld();
 				Text();
 				requestFocus();
 			}
-		}else{
-			if(e.getSource() == zurück){
+		} else {
+			if (e.getSource() == zurück) {
 				setPanel(P);
 				shop = false;
 				validate();
 				requestFocus();
 			}
-			for(int i = 0; i < angebote.length; i++){
-				if(e.getSource() == angebote[i]){
+			for (int i = 0; i < angebote.length; i++) {
+				if (e.getSource() == angebote[i]) {
 					schwerter[i] = !schwerter[i];
-					if(schwerter[i]){
+					if (schwerter[i]) {
 						angebote[i].setBackground(Color.YELLOW);
-					}else{
+					} else {
 						angebote[i].setBackground(Color.WHITE);
 					}
 					requestFocus();
 				}
 			}
-			if(e.getSource() == kaufen){
+			if (e.getSource() == kaufen) {
 				int kaufPreis = 0;
 				kaufPreis = S.getPreis("S", 1);
-				//ende For
-				if(CASH >= kaufPreis){
-					int confirm = JOptionPane.showConfirmDialog(null,"WILLST DU DIESE ARTIKEL WIRKLICH KAUFEN?", "KAUFBESTÄTIGUNG", JOptionPane.YES_NO_OPTION);
-					if(confirm == JOptionPane.YES_OPTION){
+				// ende For
+				if (CASH >= kaufPreis) {
+					int confirm = JOptionPane.showConfirmDialog(null, "WILLST DU DIESE ARTIKEL WIRKLICH KAUFEN?",
+							"KAUFBESTÄTIGUNG", JOptionPane.YES_NO_OPTION);
+					if (confirm == JOptionPane.YES_OPTION) {
 						JOptionPane.showMessageDialog(null, "Ihr Kauf war erfolgreich!");
-						CASH-=kaufPreis;
-					}else{
+						CASH -= kaufPreis;
+					} else {
 						JOptionPane.showMessageDialog(null, "Ihr Kauf wurde abgebrochen!");
 					}
-				}else{
+				} else {
 					int zuwenig = kaufPreis - CASH;
-					JOptionPane.showMessageDialog(null, "Du brauchst ersteinmal Geld, bevor du dir diese Artikel kaufen kannst!\nDu hast "+zuwenig+" zuwenig!");
+					JOptionPane.showMessageDialog(null,
+							"Du brauchst ersteinmal Geld, bevor du dir diese Artikel kaufen kannst!\nDu hast " + zuwenig
+									+ " zuwenig!");
 				}
 				requestFocus();
 			}
 		}
-		
+
 	}
-	
+
 	public void geld() {
-		if(m.getPositionX() == 4 && m.getPositionY() == 17){
+		if (m.getPositionX() == 4 && m.getPositionY() == 17) {
 			System.out.println("Kein Geld wegen Ausgang...");
-		}else{
-			int rnd = (int)(Math.random()*5)+1;
-			if(rnd == 5){
-				CASH++; 
-				System.out.println("DU HAST GELD GEFUNDEN"); 
+		} else {
+			int rnd = (int) (Math.random() * 5) + 1;
+			if (rnd == 5) {
+				CASH++;
+				System.out.println("DU HAST GELD GEFUNDEN");
 			}
 		}
 	}
 
-	
-	
 	public void setPanel(JPanel p) {
 		this.setContentPane(p);
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-	if(e.getKeyCode() == KeyEvent.VK_UP){
-		m.geheTop();
-		geld();
-		Text();
+		if (e.getKeyCode() == KeyEvent.VK_UP) {
+			m.geheTop();
+			geld();
+			Text();
+		}
+		if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+			m.geheLeft();
+			geld();
+			Text();
+		}
+		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+			m.geheRight();
+			geld();
+			Text();
+		}
+		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+			m.geheBot();
+			geld();
+			Text();
+		}
 	}
-	if(e.getKeyCode() == KeyEvent.VK_LEFT){
-		m.geheLeft();
-		geld();
-		Text();	
-	}
-	if(e.getKeyCode() == KeyEvent.VK_RIGHT){
-		m.geheRight();
-		geld();
-		Text();
-	}
-	if(e.getKeyCode() == KeyEvent.VK_DOWN){
-		m.geheBot();
-		geld();
-		Text();
-	}	
-}
 
 	@Override
-	public void keyPressed(KeyEvent e) {}
+	public void keyPressed(KeyEvent e) {
+	}
 
 	@Override
-	public void keyTyped(KeyEvent e) {}
-	
-	
+	public void keyTyped(KeyEvent e) {
+	}
+
 	private void play(Object codeBase, String fileName) {
-        try {
-            clip = AudioSystem.getClip();  //<---
-            File file = new File(fileName + ".wav");
-            AudioInputStream ais = AudioSystem.getAudioInputStream(file);
-            clip.open(ais);
-            clip.start();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
+		try {
+			clip = AudioSystem.getClip(); // <---
+			File file = new File(fileName + ".wav");
+			AudioInputStream ais = AudioSystem.getAudioInputStream(file);
+			clip.open(ais);
+			clip.start();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+	}
 
-    private void stop(Object codeBase, String fileName) {
-        try {
-            if (clip != null) {
-                clip.stop();
-                clip.close();
-            }
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
-    
-	public static boolean cave(){
+	private void stop(Object codeBase, String fileName) {
+		try {
+			if (clip != null) {
+				clip.stop();
+				clip.close();
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+	}
+
+	public static boolean cave() {
 		boolean temp = false;
-		int rnd = (int) (Math.random()*100);
-		if(rnd >= 25){
+		int rnd = (int) (Math.random() * 100);
+		if (rnd >= 25) {
 			temp = true;
 		}
 		return temp;
