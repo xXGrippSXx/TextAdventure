@@ -46,7 +46,7 @@ public class KartenErsteller extends JFrame implements
 		panel.add(getStadt());
 
 		JPanel pan = new JPanel();
-		pan.setLayout(new GridLayout(20, 20)); // Umbauen
+		pan.setLayout(new GridLayout(20, 20));
 
 		setTitle("Kartenersteller");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

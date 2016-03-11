@@ -167,8 +167,8 @@ public class Hauptmenu extends JFrame implements ActionListener {
 		if (e.getSource() == start) {
 			try {
 				/* new Vorgeschichte().anzeigen(); */ // WICHTIG FÜR STORY,
-														// SONST WIRD SIE NICHT
-														// ANGEZEIGT
+				// SONST WIRD SIE NICHT
+				// ANGEZEIGT
 				@SuppressWarnings("unused")
 				Spiel spiel = new Spiel(0, music, ".\\musik", ".\\SAVE.txt");
 				this.setVisible(false);
@@ -186,25 +186,25 @@ public class Hauptmenu extends JFrame implements ActionListener {
 			}
 			int code = Integer.parseInt(inputDialog);
 			System.out.println("Code: " + code);
-			if (code == 9258369) {// CODE KUEHN
+			if (code == CODE_KUEHN) {// CODE KUEHN
 				try {
 					new Spiel(100, music, ".\\musik", ".\\SAVE.txt");
 					this.setVisible(false);
 				} catch (Exception e1) {
 				}
-			} else if (code == 49435233) {// CODE STC
+			} else if (code == CODE_STC) {// CODE STC
 				try {
 					new Spiel(10, music, ".\\musik3", ".\\MapSTCSTI.txt");
 					this.setVisible(false);
 				} catch (Exception e1) {
 				}
-			} else if (code == 49435234) {// CODE STI
+			} else if (code == CODE_STI) {// CODE STI
 				try {
 					new Spiel(10, music, ".\\musik4", ".\\MapSTCSTI.txt");
 					this.setVisible(false);
 				} catch (Exception e1) {
 				}
-			} else if (code == 53481744) {// CODE JAN
+			} else if (code == CODE_JAN) {// CODE JAN
 				try {
 					new Spiel(10, music, ".\\musik2", ".\\SAVE.txt");
 					this.setVisible(false);
