@@ -11,16 +11,21 @@ public class WeltKarte extends JFrame {
 	public WeltKarte(Movement m) {
 		this.m = m;
 
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setLayout(new GridLayout(m.Ort.length, m.Ort[0].length));
 		ort = new JLabel[m.Ort[0].length][m.Ort.length];
-		for (int i = 0; i < m.Ort[0].length; i++) {
-			for (int j = 0; j < m.Ort.length; j++) {
-				JLabel icon = createIcon(m.Ort[i][j]);
+		for (int x = 0; x < m.Ort[0].length; x++) {
+			for (int y = 0; y < m.Ort.length; y++) {
+				JLabel icon = createIcon(m.Ort[x][y]);
 				add(icon);
-				ort[j][i] = icon;
+				ort[x][y] = icon;
 			}
 		}
+
+		grenzenDarstellen();
+	}
+
+	private void grenzenDarstellen() {
 
 	}
 
