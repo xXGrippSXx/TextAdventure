@@ -64,9 +64,36 @@ public class WeltKarte extends JFrame {
 		// e.printStackTrace();
 		// }
 
-		JLabel label = new JLabel(gelaendeTyp.name());
+		JLabel label = new JLabel();
 		label.setBackground(Farben.getByGelaendeTyp(gelaendeTyp));
 		label.setOpaque(true);
+		if (gelaendeTyp.name() == "Wald") {
+			label.setToolTipText("Wald");
+		}
+		if (gelaendeTyp.name() == "Start") {
+			label.setToolTipText("Start");
+		}
+		if (gelaendeTyp.name() == "Wand") {
+			label.setToolTipText("Wand");
+		}
+		if (gelaendeTyp.name() == "Berg") {
+			label.setToolTipText("Berg");
+		}
+		if (gelaendeTyp.name() == "Hoehle") {
+			label.setToolTipText("Höhle");
+		}
+		if (gelaendeTyp.name() == "Wueste") {
+			label.setToolTipText("Wüste");
+		}
+		if (gelaendeTyp.name() == "Stadt") {
+			label.setToolTipText("Stadt");
+		}
+		if (gelaendeTyp.name() == "Ziel") {
+			label.setToolTipText("Ziel");
+		}
+		if (gelaendeTyp.name() == "Weg") {
+			label.setToolTipText("Weg");
+		}
 		return label;
 
 	}
