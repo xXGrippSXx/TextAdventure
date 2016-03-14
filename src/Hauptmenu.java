@@ -46,7 +46,7 @@ public class Hauptmenu extends JFrame implements ActionListener {
 		m = m1;
 		p = new JPanel();
 		start = new JButton("Spiel Starten");
-		laden = new JButton("Spiel Laden");
+		laden = new JButton("Ziel des Spiels");
 		credi = new JButton("Credits");
 		musik = new JButton("Einstellungen");
 		ende = new JButton("Spiel Beenden");
@@ -180,47 +180,9 @@ public class Hauptmenu extends JFrame implements ActionListener {
 		}
 
 		if (e.getSource() == laden) {
-			String inputDialog = JOptionPane.showInputDialog("Geben Sie einen Level - Code ein", "1234567890");
-			if (inputDialog == null) {
-				return;
-			}
-			int code = Integer.parseInt(inputDialog);
-			System.out.println("Code: " + code);
-			if (code == CODE_KUEHN) {// CODE KUEHN
-				try {
-					new Spiel(100, music, ".\\musik", ".\\SAVE.txt");
-					this.setVisible(false);
-				} catch (Exception e1) {
-				}
-			} else if (code == CODE_STC) {// CODE STC
-				try {
-					new Spiel(10, music, ".\\musik3", ".\\MapSTCSTI.txt");
-					this.setVisible(false);
-				} catch (Exception e1) {
-				}
-			} else if (code == CODE_STI) {// CODE STI
-				try {
-					new Spiel(10, music, ".\\musik4", ".\\MapSTCSTI.txt");
-					this.setVisible(false);
-				} catch (Exception e1) {
-				}
-			} else if (code == CODE_JAN) {// CODE JAN
-				try {
-					new Spiel(10, music, ".\\musik2", ".\\SAVE.txt");
-					this.setVisible(false);
-				} catch (Exception e1) {
-				}
-			}
-
-			else {
-				if (laden(code)) {
-					try {
-						new Spiel(0, music, ".\\musik", ".\\SAVE.txt");
-						this.setVisible(false);
-					} catch (Exception e1) {
-					}
-				}
-			}
+			JOptionPane.showMessageDialog(null,
+					"Das Ziel des Spieles ist es, das Ziel auf einer 20 x 20 groﬂen Karte zu finden.\nHierbei musst du darauf achten, dass du nur von Wegen in Gebiete, oder dich in den Gebieten bewegen kannst.\nDu musst auf der Schwierigkeitsstufe Schwer gegen Monster k‰mpfen. \n Wenn du das Ziel gefunden hast, kommt es darauf an, ob du bereits genug Gold gesammelt hast, wenn nicht, dann musst du weiter suchen!",
+					"Ziel des Spiels", JOptionPane.INFORMATION_MESSAGE);
 		}
 
 		if (e.getSource() == credi) {
