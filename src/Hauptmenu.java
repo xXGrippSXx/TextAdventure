@@ -35,7 +35,7 @@ public class Hauptmenu extends JFrame implements ActionListener {
 	public JButton credi;
 	public JButton ende;
 	public JButton laden;
-	public JButton musik;
+	public JButton optionen;
 	private JMenu entwicklerOptionen;
 	static boolean music = true;
 	public String[] Codes = { "21543", "15946", "44568", "15357", "54545" };
@@ -46,25 +46,25 @@ public class Hauptmenu extends JFrame implements ActionListener {
 		m = m1;
 		p = new JPanel();
 		start = new JButton("Spiel Starten");
+		optionen = new JButton("Spiel ohne VG");
 		laden = new JButton("Ziel des Spiels");
 		credi = new JButton("Credits");
-		musik = new JButton("Einstellungen");
 		ende = new JButton("Spiel Beenden");
 		start.setBounds(120, 40, 160, 40);
-		laden.setBounds(120, 120, 160, 40);
-		credi.setBounds(120, 200, 160, 40);
-		musik.setBounds(120, 280, 160, 40);
+		optionen.setBounds(120, 120, 160, 40);
+		laden.setBounds(120, 200, 160, 40);
+		credi.setBounds(120, 280, 160, 40);
 		ende.setBounds(120, 360, 160, 40);
 		start.addActionListener(this);
-		credi.addActionListener(this);
-		ende.addActionListener(this);
 		laden.addActionListener(this);
-		musik.addActionListener(this);
+		ende.addActionListener(this);
+		optionen.addActionListener(this);
+		credi.addActionListener(this);
 		p.setLayout(null);
 		p.add(start);
+		p.add(optionen);
 		p.add(laden);
 		p.add(credi);
-		p.add(musik);
 		p.add(ende);
 		setContentPane(p);
 		createMenu(this);
@@ -193,14 +193,16 @@ public class Hauptmenu extends JFrame implements ActionListener {
 					"TextAdventure\nEin Spiel der ProgrammierAG des Alstergymnasiums H.-U.\nMegakrasse Musik ausgewählt von Jan Stegemann\nMultikontroverse Matrizen von David Kowalk\nMassive Maps von Tim Wolf und Jonas Matenia\nPerfekte Programmierung von Jonas Kühn\nLustiges Layout von Kevin Altenburg\nIdeale Idee von Hr. & Fr. Stichel",
 					"CREDITS", JOptionPane.INFORMATION_MESSAGE);
 		}
-		if (e.getSource() == musik) {
-			int goon = JOptionPane.showConfirmDialog(null, "Wollen Sie Musik?", "Einstellungen",
-					JOptionPane.YES_NO_OPTION);
-			if (goon == JOptionPane.YES_OPTION) {
-				music = true;
-			}
-			if (goon == JOptionPane.NO_OPTION) {
-				music = false;
+		if (e.getSource() == optionen) {
+			try {
+				@SuppressWarnings("unused")
+				Spiel spiel = new Spiel(0, music, ".\\musik", ".\\SAVE.txt");
+				this.setVisible(false);
+			} catch (Exception e1) {
+				e1.printStackTrace();
+				JOptionPane.showMessageDialog(null,
+						"ERROR while Loading... \nPlease Try again later, or send an email to\ninfo.javaprograms@gmail.com");
+
 			}
 		}
 		if (e.getSource() == ende) {
