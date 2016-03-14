@@ -46,24 +46,6 @@ public class WeltKarte extends JFrame {
 
 	private JLabel createIcon(GelaendeTyp gelaendeTyp) {
 
-		// try {
-		// BufferedImage myPicture = ImageIO.read(new File("Desert.png"));
-		// int w = myPicture.getWidth();
-		// int h = myPicture.getHeight();
-		// BufferedImage after = new BufferedImage (w, h,
-		// BufferedImage.TYPE_INT_ARGB);
-		// AffineTransform at = new AffineTransform();
-		// at.scale(0.2, 0.2);
-		// AffineTransformOp scaleOp = new AffineTransformOp(at,
-		// AffineTransformOp.TYPE_BILINEAR);
-		// after = scaleOp.filter(myPicture, after);
-		// JLabel label = new JLabel(new ImageIcon(after));
-		// return label;
-		// } catch (IOException e) {
-		//
-		// e.printStackTrace();
-		// }
-
 		JLabel label = new JLabel();
 		label.setBackground(Farben.getByGelaendeTyp(gelaendeTyp));
 		label.setOpaque(true);

@@ -51,6 +51,9 @@ public class Fenster extends JFrame implements ActionListener, KeyListener {
 	private WeltKarte karte;
 	static int sec = 0;
 	public Timer timer = new Timer();
+
+	private SoundSpieler soundPlayer = new SoundSpieler();
+
 	public TimerTask task = new TimerTask() {
 
 		@Override
@@ -178,14 +181,21 @@ public class Fenster extends JFrame implements ActionListener, KeyListener {
 			break;
 		}
 
-		if (Temp == "Höhle") {
-			new SoundSpieler().play(".\\CaveSound.wav");
+		if (Temp.equals("Höhle")) {
+			if (!soundPlayer.isPlaying()) {
+				soundPlayer.play(".\\CaveSound.wav");
+			}
 			if (!cave()) {
 				CASH += 50;
 			} else {
 				CASH = 0;
 			}
+		} else {
+			if (soundPlayer.isPlaying()) {
+				soundPlayer.stop();
+			}
 		}
+
 		// 0,2,4,6,8
 		subPanel.setBackground(color);
 

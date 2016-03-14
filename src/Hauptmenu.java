@@ -46,15 +46,15 @@ public class Hauptmenu extends JFrame implements ActionListener {
 		m = m1;
 		p = new JPanel();
 		start = new JButton("Spiel Starten");
-		optionen = new JButton("Spiel ohne VG");
+		optionen = new JButton("Spiel ohne Vorgeschichte");
 		laden = new JButton("Ziel des Spiels");
 		credi = new JButton("Credits");
 		ende = new JButton("Spiel Beenden");
-		start.setBounds(120, 40, 160, 40);
-		optionen.setBounds(120, 120, 160, 40);
-		laden.setBounds(120, 200, 160, 40);
-		credi.setBounds(120, 280, 160, 40);
-		ende.setBounds(120, 360, 160, 40);
+		start.setBounds(105, 40, 190, 40);
+		optionen.setBounds(105, 120, 190, 40);
+		laden.setBounds(105, 200, 190, 40);
+		credi.setBounds(105, 280, 190, 40);
+		ende.setBounds(105, 360, 190, 40);
 		start.addActionListener(this);
 		laden.addActionListener(this);
 		ende.addActionListener(this);
@@ -184,7 +184,7 @@ public class Hauptmenu extends JFrame implements ActionListener {
 
 		if (e.getSource() == laden) {
 			JOptionPane.showMessageDialog(null,
-					"Das Ziel des Spieles ist es, das Ziel auf einer 20 x 20 großen Karte zu finden.\nHierbei musst du darauf achten, dass du nur von Wegen in Gebiete, oder dich in den Gebieten bewegen kannst.\nDu musst auf der Schwierigkeitsstufe Schwer gegen Monster kämpfen. \n Wenn du das Ziel gefunden hast, kommt es darauf an, ob du bereits genug Gold gesammelt hast, wenn nicht, dann musst du weiter suchen!",
+					"Das Ziel des Spieles ist es, das Ziel auf einer 20 x 20 großen Karte zu finden, indem du die Pfeiltasten oder Knöpfe im Fenster benutzt.\nWenn Monster auf dem Weg auftauchen, müssen sie besiegt werden, damit das Ziel erreicht werden kann.\nHierbei musst du darauf achten, dass du nur von Wegen in Gebiete, oder dich in den Gebieten bewegen kannst.",
 					"Ziel des Spiels", JOptionPane.INFORMATION_MESSAGE);
 		}
 

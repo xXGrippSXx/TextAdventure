@@ -19,4 +19,19 @@ public class SoundSpieler {
 		}
 	}
 
+	public boolean isPlaying() {
+		if (clip == null) {
+			return false;
+		}
+		return clip.isRunning();
+	}
+
+	public void stop() {
+		if (clip != null) {
+			clip.stop();
+			clip.close();
+		}
+
+	}
+
 }
