@@ -30,6 +30,18 @@ public class WeltKarte extends JFrame {
 
 	private void grenzenDarstellen() {
 
+		for (int y = 0; y < ort.size(); y++) {
+			List<JLabel> xWerte = ort.get(y);
+			for (int x = 0; x < ort.size(); x++) {
+				JLabel label = xWerte.get(x);
+				createBorder(label, x, y);
+			}
+		}
+
+	}
+
+	private void createBorder(JLabel label, int x, int y) {
+		// TODO
 	}
 
 	private JLabel createIcon(GelaendeTyp gelaendeTyp) {
