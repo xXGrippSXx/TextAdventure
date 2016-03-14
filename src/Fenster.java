@@ -179,7 +179,7 @@ public class Fenster extends JFrame implements ActionListener, KeyListener {
 		}
 
 		if (Temp == "Höhle") {
-			new SoundSpieler().playSound(new File("C:\\Users\\Linus\\Documents\\GitHub\\TextAdventure\\CaveSound.wav"));
+			new SoundSpieler().play(".\\CaveSound.wav");
 			if (!cave()) {
 				CASH += 50;
 			} else {
