@@ -1,11 +1,13 @@
 import java.awt.GridLayout;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class WeltKarte extends JFrame {
 
-	private JLabel[][] ort;
+	private List<List<JLabel>> ort;
 	private Movement m;
 
 	public WeltKarte(Movement m) {
@@ -13,15 +15,16 @@ public class WeltKarte extends JFrame {
 
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setLayout(new GridLayout(m.Ort.length, m.Ort[0].length));
-		ort = new JLabel[m.Ort[0].length][m.Ort.length];
+		ort = new ArrayList<>();
 		for (int x = 0; x < m.Ort[0].length; x++) {
+			List<JLabel> xWerte = new ArrayList<>();
 			for (int y = 0; y < m.Ort.length; y++) {
 				JLabel icon = createIcon(m.Ort[x][y]);
 				add(icon);
-				ort[x][y] = icon;
+				xWerte.add(icon);
 			}
+			ort.add(xWerte);
 		}
-
 		grenzenDarstellen();
 	}
 
@@ -58,7 +61,7 @@ public class WeltKarte extends JFrame {
 
 	public void neuePosition(int positionX, int positionY) {
 
-		JLabel neuePosition = ort[positionX][positionY];
+		JLabel neuePosition = ort.get(positionY).get(positionX);
 		neuePosition.setText("X");
 
 	}

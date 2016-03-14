@@ -174,6 +174,10 @@ public class Movement {
 				JOptionPane.showMessageDialog(null, "Du kannst diesen Ort nicht betreten!");
 				TopPassierbar = 0;
 			}
+			if (TopPassierbar == 0) {
+				System.out.println("Hier kannst du nicht langgehen!");
+
+			}
 		}
 
 		if (TopPassierbar == 1) {
@@ -476,4 +480,5 @@ public class Movement {
 		}
 		System.out.println("BotPassierbar: " + BotPassierbar);
 	}
+
 }
