@@ -54,7 +54,7 @@ public class Hauptmenu extends JFrame implements ActionListener {
 		optionen.setBounds(105, 120, 190, 40);
 		laden.setBounds(105, 200, 190, 40);
 		credi.setBounds(105, 280, 190, 40);
-		ende.setBounds(105, 360, 190, 40);
+		ende.setBounds(105, 360, 190, 40); // Du macht
 		start.addActionListener(this);
 		laden.addActionListener(this);
 		ende.addActionListener(this);
@@ -177,7 +177,7 @@ public class Hauptmenu extends JFrame implements ActionListener {
 			} catch (Exception e1) {
 				e1.printStackTrace();
 				JOptionPane.showMessageDialog(null,
-						"ERROR while Loading... \nPlease Try again later, or send an email to\ninfo.javaprograms@gmail.com");
+						"ERROR while Loading... \nPlease Try again later, or send an email to\ninfo.javaprograms@gmail.com\nor\ngrippshd@gmail.com");
 			}
 		}
 
