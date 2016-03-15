@@ -10,10 +10,10 @@ import java.util.Set;
 
 import org.junit.Test;
 
-public class StraﬂenEqualsTEst {
+public class StraﬂenEqualsTest {
 	@Test
 	public void StraﬂennMitEqualsVergleichen() throws Exception {
-		Straﬂen straﬂe1 = new Straﬂen("AlsterBurgwall");
+		Straﬂen straﬂe1 = new Straﬂen("AlterBurgwall");
 		Straﬂen straﬂe2 = new Straﬂen("Heinrich-Schˆneberger");
 
 		assertNotEquals(straﬂe1, straﬂe2);
@@ -43,6 +43,6 @@ public class StraﬂenEqualsTEst {
 		assertTrue(alleStraﬂenen.contains(straﬂe2));
 		assertTrue(alleStraﬂenen.contains(straﬂe3));
 		assertTrue(alleStraﬂenen.contains(new Straﬂen("Heinrich-Schˆneberger")));
-		assertFalse(alleStraﬂenen.contains(new Straﬂen("Hamburger Straﬂen")));
+		assertFalse(alleStraﬂenen.contains(new Straﬂen("Hamburger Straﬂe")));
 	}
 }
