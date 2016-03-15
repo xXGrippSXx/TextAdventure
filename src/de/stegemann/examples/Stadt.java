@@ -51,4 +51,15 @@ public class Stadt {
 		}
 		return anzahlDerEinwohner;
 	}
+
+	public int anzahlStassenDieMitBuchstabeBeginnen(String name) {
+		int anzahlDerStrassen;
+		anzahlDerStrassen = 0;
+		for (Straﬂen strasse : straﬂen) {
+			if (strasse.getName().startsWith(name)) {
+				anzahlDerStrassen++;
+			}
+		}
+		return anzahlDerStrassen;
+	}
 }

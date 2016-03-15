@@ -44,9 +44,11 @@ public class WolfsburgTest {
 		wolfsburg.neueStrasseBauen(new Straﬂen("Schillerstraﬂe"));
 		wolfsburg.neueStrasseBauen(new Straﬂen("Schillerstraﬂe"));
 		wolfsburg.neueStrasseBauen(new Straﬂen("Celler-Straﬂe"));
+		wolfsburg.neueStrasseBauen(new Straﬂen("Musterstrasse"));
 		wolfsburg.neueStrasseBauen(new Straﬂen("Querbrakenring"));
 
 		assertTrue(wolfsburg.gibtEsDieStraﬂe(new Straﬂen("Major-Hirst-Straﬂe")));
+		assertTrue(wolfsburg.gibtEsDieStraﬂe(new Straﬂen("Musterstrasse")));
 		assertTrue(wolfsburg.gibtEsDieStraﬂe(new Straﬂen("Heinrich-Nordhoff-Straﬂe")));
 		assertTrue(wolfsburg.gibtEsDieStraﬂe(new Straﬂen("Schillerstraﬂe")));
 		assertTrue(wolfsburg.gibtEsDieStraﬂe(new Straﬂen("Celler-Straﬂe")));
@@ -54,9 +56,12 @@ public class WolfsburgTest {
 
 		assertFalse(wolfsburg.gibtEsDieStraﬂe(new Straﬂen("Am S¸dhang")));
 
-		assertEquals(5, wolfsburg.anzahlDerStraﬂen());
+		assertEquals(6, wolfsburg.anzahlDerStraﬂen());
 		assertEquals(2, wolfsburg.anzahlAnEinwohnernInStrasse(ModersohnBeckerRing));
 		assertEquals(5, wolfsburg.anzahlAnEinwohnernInStrasse(DEFAULT_STRASSE));
+
+		assertEquals(2, wolfsburg.anzahlStassenDieMitBuchstabeBeginnen("M"));
+
 	}
 
 }
