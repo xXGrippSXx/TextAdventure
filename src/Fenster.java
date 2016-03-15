@@ -186,9 +186,11 @@ public class Fenster extends JFrame implements ActionListener, KeyListener {
 				soundPlayer.play(".\\CaveSound.wav");
 			}
 			if (!cave()) {
-				CASH += 50;
+				if (CASH < 50) {
+					CASH += 50;
+				}
 			} else {
-				CASH = 0;
+				CASH = CASH;
 			}
 		} else {
 			if (soundPlayer.isPlaying()) {
