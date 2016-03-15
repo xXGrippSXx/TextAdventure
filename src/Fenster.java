@@ -191,6 +191,7 @@ public class Fenster extends JFrame implements ActionListener, KeyListener {
 				}
 			} else {
 				CASH = CASH;
+				System.out.println("Du kannst kein Geld mehr bekommen da du mehr als 50 Gold hast.");
 			}
 		} else {
 			if (soundPlayer.isPlaying()) {
