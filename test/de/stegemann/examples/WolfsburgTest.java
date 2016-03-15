@@ -52,5 +52,7 @@ public class WolfsburgTest {
 		assertFalse(wolfsburg.gibtEsDieStraﬂe(new Straﬂen("Am S¸dhang")));
 
 		assertEquals(5, wolfsburg.anzahlDerStraﬂen());
+
+		assertEquals(2, wolfsburg.anzahlAnEinwohnernInStrasse(new Straﬂen("Modersohn-Becker-Ring")));
 	}
 }
