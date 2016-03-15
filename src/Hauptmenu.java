@@ -14,7 +14,6 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButtonMenuItem;
 import javax.swing.KeyStroke;
 
-//245
 @SuppressWarnings("serial")
 public class Hauptmenu extends JFrame implements ActionListener {
 
@@ -23,6 +22,7 @@ public class Hauptmenu extends JFrame implements ActionListener {
 	private static final int CODE_STI = 49435234;
 	private static final int CODE_STC = 49435233;
 	private static final int CODE_KUEHN = 9258369;
+	private static final int CODE_QTE = 42;
 	private static final String AC_Code = "codeEingeben";
 	private static final String AC_Music_ON_OFF = "codeEingeben2";
 	private static final String AC_Schwer = "codeEingeben3";
@@ -71,7 +71,6 @@ public class Hauptmenu extends JFrame implements ActionListener {
 	}
 
 	public static void main(String[] args) throws Exception {
-		// new Spiel(-5, music, ".\\musik",".\\MapSTCSTI.txt");
 		Hauptmenu f = new Hauptmenu(m);
 		f.setSize(400, 480);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -252,6 +251,12 @@ public class Hauptmenu extends JFrame implements ActionListener {
 					getEntwicklerOptionen().setVisible(true);
 				} catch (Exception e1) {
 				}
+			} else if (code == CODE_QTE) {
+				try {
+					JOptionPane.showMessageDialog(null, "The Answer to EVERYTHING.....IS..... 42!", "42",
+							JOptionPane.INFORMATION_MESSAGE);
+				} catch (Exception e1) {
+				}
 			} else {
 				if (laden(code)) {
 					try {
@@ -308,3 +313,14 @@ public class Hauptmenu extends JFrame implements ActionListener {
 	}
 
 }
+// Theres something the way you do, theres something the way you move!!
+// oh oh oh oh oh oh oh oh oh oh oh oh
+// Theres something the way you move, theres something the way you do!!
+// oh oh oh oh oh oh oh oh oh oh oh oh
+// BUT NOW LADYS AND GENTLEMAN. HERE IS THE ANSWER TO ANY QUESTION IN THE
+// UNIVERSE!
+// fourty two..... 42
+// 4+2 = 6
+// 6/2 Schreibweisen = 3
+// 3 Ecken von einem Dreieck
+// Dreieck = ILLUMINATI
