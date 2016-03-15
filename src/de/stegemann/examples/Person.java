@@ -2,11 +2,11 @@ package de.stegemann.examples;
 
 public class Person {
 	private String name;
-	private String straße;
+	private Straßen straße;
 
-	public Person(String name) {
+	public Person(String name, Straßen strasse) {
 		this.name = name;
-		this.straße = name;
+		this.straße = strasse;
 	}
 
 	// Von eclipse generiert mit Source -> Generate hashCode() and equals() aus
@@ -36,8 +36,8 @@ public class Person {
 		return true;
 	}
 
-	public Object getStrasse() {
+	public Straßen getStrasse() {
 
-		return null;
+		return straße;
 	}
 }

@@ -40,4 +40,15 @@ public class Stadt {
 	public int anzahlDerStraﬂen() {
 		return this.straﬂen.size();
 	}
+
+	public int anzahlAnEinwohnernInStrasse(Straﬂen straﬂe) {
+		int anzahlDerEinwohner;
+		anzahlDerEinwohner = 0;
+		for (Person person : personen) {
+			if (person.getStrasse().equals(straﬂe)) {
+				anzahlDerEinwohner++;
+			}
+		}
+		return anzahlDerEinwohner;
+	}
 }
