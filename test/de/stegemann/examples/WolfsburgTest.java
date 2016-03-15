@@ -62,6 +62,8 @@ public class WolfsburgTest {
 
 		assertEquals(2, wolfsburg.anzahlStassenDieMitBuchstabeBeginnen("M"));
 
+		wolfsburg.namenDerPersonen();
+
 	}
 
 }

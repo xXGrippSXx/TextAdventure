@@ -62,4 +62,11 @@ public class Stadt {
 		}
 		return anzahlDerStrassen;
 	}
+
+	public void namenDerPersonen() {
+		for (Person person : personen) {
+			System.out.println(person.getName() + " " + person.getStrasse().getName());
+		}
+	}
+
 }
