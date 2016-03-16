@@ -15,7 +15,7 @@ import javax.swing.JRadioButtonMenuItem;
 import javax.swing.KeyStroke;
 
 @SuppressWarnings("serial")
-public class TextAdventure extends JFrame implements ActionListener {
+public class Hauptmenu extends JFrame implements ActionListener {
 
 	private static final int CODE_JAN = 53481744;
 	private static final int CODE_42 = 424242;
@@ -42,7 +42,7 @@ public class TextAdventure extends JFrame implements ActionListener {
 	public String[] Codes = { "21543", "15946", "44568", "15357", "54545" };
 	private Schwierigkeit aktuelleSchwierigkeit = Schwierigkeit.Mittel;
 
-	public TextAdventure(Movement m1) {
+	public Hauptmenu(Movement m1) {
 		super("	Text Adventure ");
 		m = m1;
 		p = new JPanel();
@@ -72,14 +72,14 @@ public class TextAdventure extends JFrame implements ActionListener {
 	}
 
 	public static void main(String[] args) throws Exception {
-		TextAdventure f = new TextAdventure(m);
+		Hauptmenu f = new Hauptmenu(m);
 		f.setSize(400, 480);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setVisible(true);
 
 	}
 
-	public JMenuBar createMenu(TextAdventure f) {
+	public JMenuBar createMenu(Hauptmenu f) {
 		JMenuBar menuBar;
 		JMenu menu, submenu;
 		JMenuItem menuItem;
