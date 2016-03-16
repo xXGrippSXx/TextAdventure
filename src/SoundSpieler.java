@@ -9,7 +9,7 @@ public class SoundSpieler {
 
 	public void play(String fileName) {
 		try {
-			clip = AudioSystem.getClip(); // <---
+			clip = AudioSystem.getClip();
 			File file = new File(fileName);
 			AudioInputStream ais = AudioSystem.getAudioInputStream(file);
 			clip.open(ais);

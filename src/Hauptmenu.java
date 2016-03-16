@@ -22,7 +22,7 @@ public class Hauptmenu extends JFrame implements ActionListener {
 	private static final int CODE_STI = 49435234;
 	private static final int CODE_STC = 49435233;
 	private static final int CODE_KUEHN = 9258369;
-	private static final int CODE_QTE = 42;
+	private static final int CODE_ATE = 42;
 	private static final String AC_Code = "codeEingeben";
 	private static final String AC_Music_ON_OFF = "codeEingeben2";
 	private static final String AC_Schwer = "codeEingeben3";
@@ -55,7 +55,7 @@ public class Hauptmenu extends JFrame implements ActionListener {
 		optionen.setBounds(105, 120, 190, 40);
 		laden.setBounds(105, 200, 190, 40);
 		credi.setBounds(105, 280, 190, 40);
-		ende.setBounds(105, 360, 190, 40); // Du macht
+		ende.setBounds(105, 360, 190, 40);
 		start.addActionListener(this);
 		laden.addActionListener(this);
 		ende.addActionListener(this);
@@ -169,7 +169,6 @@ public class Hauptmenu extends JFrame implements ActionListener {
 		return entwicklerOptionen;
 	}
 
-	// test
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == start) {
@@ -269,12 +268,12 @@ public class Hauptmenu extends JFrame implements ActionListener {
 				} catch (Exception e1) {
 				}
 
-			} else if (code == CODE_42) {// CODE 42
+			} else if (code == CODE_42) {
 				try {
 					getEntwicklerOptionen().setVisible(true);
 				} catch (Exception e1) {
 				}
-			} else if (code == CODE_QTE) {
+			} else if (code == CODE_ATE) {
 				try {
 					JOptionPane.showMessageDialog(null, "The Answer to EVERYTHING.....IS..... 42!", "42",
 							JOptionPane.INFORMATION_MESSAGE);

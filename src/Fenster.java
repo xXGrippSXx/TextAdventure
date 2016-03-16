@@ -22,9 +22,6 @@ import javax.swing.JTextArea;
 
 @SuppressWarnings("serial")
 public class Fenster extends JFrame implements ActionListener, KeyListener {
-	// BITTE ZEILE 177 ÜBERARBEITEN... FEHLER: Exception in thread
-	// "AWT-EventQueue-0" java.lang.NullPointerException at
-	// Fenster.actionPerformed(Fenster.java:177)
 	public JPanel PanelShop, KnöpfeAngebote, KnöpfeSteuer;
 	public JButton kaufen;
 	public JButton zurück;
@@ -139,7 +136,7 @@ public class Fenster extends JFrame implements ActionListener, KeyListener {
 
 		setContentPane(P);
 		setResizable(true);
-		// Musik();
+
 	}
 
 	public void Text() {
@@ -199,7 +196,6 @@ public class Fenster extends JFrame implements ActionListener, KeyListener {
 			}
 		}
 
-		// 0,2,4,6,8
 		subPanel.setBackground(color);
 
 		A.setText(Temp + "\n" + m.getGebiet() + "\nX: " + m.getPositionX() + "\nY: " + m.getPositionY() + "\nZeit: "
@@ -297,7 +293,6 @@ public class Fenster extends JFrame implements ActionListener, KeyListener {
 			if (e.getSource() == kaufen) {
 				int kaufPreis = 0;
 				kaufPreis = S.getPreis("S", 1);
-				// ende For
 				if (CASH >= kaufPreis) {
 					int confirm = JOptionPane.showConfirmDialog(null, "WILLST DU DIESE ARTIKEL WIRKLICH KAUFEN?",
 							"KAUFBESTÄTIGUNG", JOptionPane.YES_NO_OPTION);
@@ -369,7 +364,7 @@ public class Fenster extends JFrame implements ActionListener, KeyListener {
 
 	private void play(Object codeBase, String fileName) {
 		try {
-			clip = AudioSystem.getClip(); // <---
+			clip = AudioSystem.getClip();
 			File file = new File(fileName + ".wav");
 			AudioInputStream ais = AudioSystem.getAudioInputStream(file);
 			clip.open(ais);

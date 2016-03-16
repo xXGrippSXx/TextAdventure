@@ -8,8 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class KartenErsteller extends JFrame implements
-		ActionListener { /* Zum Erstellen neuer Karten für Entwickler */
+public class KartenErsteller extends JFrame implements ActionListener {
 
 	private static final String AC_WALD = "codeEingabeKarte1";
 	private static final String AC_START = "codeEinagbeKarte2";

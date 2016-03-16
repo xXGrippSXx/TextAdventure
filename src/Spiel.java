@@ -17,8 +17,6 @@ public class Spiel {
 		map = map1;
 		System.out.println(map);
 		System.out.println("Start");
-		// m.setX(x1);
-		// m.setY(y1);
 		try {
 			lesen(m);
 		} catch (IOException e) {
@@ -62,7 +60,6 @@ public class Spiel {
 					y = b;
 				}
 				m.setOrt(temp2, a, b);
-				// Hello
 			}
 		}
 		m.setX(x);

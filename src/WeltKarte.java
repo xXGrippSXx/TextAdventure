@@ -41,7 +41,6 @@ public class WeltKarte extends JFrame {
 	}
 
 	private void createBorder(JLabel label, int x, int y) {
-		// TODO
 	}
 
 	private JLabel createIcon(GelaendeTyp gelaendeTyp) {
