@@ -100,7 +100,7 @@ public class Hauptmenu extends JFrame implements ActionListener {
 		p.add(menuItem);
 		menu.add(menuItem);
 
-		menuItem = new JMenuItem("Informationen");
+		menuItem = new JMenuItem("Informationen zum Praktium");
 		menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_3, ActionEvent.ALT_MASK));
 		menuItem.getAccessibleContext().setAccessibleDescription("This doesnt really do anything");
 		menuItem.setActionCommand(AC_INFO);
@@ -188,9 +188,6 @@ public class Hauptmenu extends JFrame implements ActionListener {
 								+ " du stürmst sofort nach draußen...\nDoch dann bemerkst du, dass es keine normalen "
 								+ "Räume sondern Gebiete sind...",
 						"Ziel des Spiels", JOptionPane.INFORMATION_MESSAGE);
-				/* new Vorgeschichte().anzeigen(); */ // WICHTIG FÜR STORY,
-				// SONST WIRD SIE NICHT
-				// ANGEZEIGT
 				@SuppressWarnings("unused")
 				Spiel spiel = new Spiel(0, music, ".\\musik", ".\\SAVE.txt");
 				this.setVisible(false);
