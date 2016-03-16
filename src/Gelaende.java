@@ -5,6 +5,7 @@ import javax.swing.JLabel;
 public class Gelaende extends JLabel {
 
 	private boolean istEsBetreten;
+	private boolean wurdeBetreten;
 
 	private GelaendeTyp typ;
 
@@ -16,11 +17,16 @@ public class Gelaende extends JLabel {
 
 	@Override
 	public Color getBackground() {
-		return Farben.getByGelaendeTyp(typ);
+		if (wurdeBetreten) {
+			return Farben.getByGelaendeTyp(typ);
+		} else {
+			return Color.BLACK;
+		}
 	}
 
 	public void betreten() {
 		istEsBetreten = true;
+		wurdeBetreten = true;
 	}
 
 	public void verlassen() {

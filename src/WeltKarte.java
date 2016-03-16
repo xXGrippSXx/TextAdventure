@@ -53,7 +53,7 @@ public class WeltKarte extends JFrame {
 	public void neuePosition(int positionX, int positionY) {
 
 		Gelaende neuePosition = ort.get(positionY).get(positionX);
-		neuePosition.setText("X");
+		neuePosition.betreten();
 
 	}
 }
