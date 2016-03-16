@@ -25,6 +25,7 @@ public class GelaendeTest {
 	public void gelaendeIstSchwarzVorBetreten() throws Exception {
 		Gelaende gelaende = new Gelaende(GelaendeTyp.Berg);
 		assertEquals(Color.BLACK, gelaende.getBackground());
+		assertEquals("", gelaende.getText());
 	}
 
 	@Test
@@ -33,6 +34,7 @@ public class GelaendeTest {
 		gelaende.betreten();
 		assertNotEquals(Color.BLACK, gelaende.getBackground());
 		assertNotNull(gelaende.getBackground());
+		assertEquals("X", gelaende.getText());
 	}
 
 	@Test
@@ -42,5 +44,6 @@ public class GelaendeTest {
 		gelaende.verlassen();
 		assertNotEquals(Color.BLACK, gelaende.getBackground());
 		assertNotNull(gelaende.getBackground());
+		assertEquals("", gelaende.getText());
 	}
 }

@@ -22,15 +22,19 @@ public class Gelaende extends JLabel {
 		} else {
 			return Color.BLACK;
 		}
+
 	}
 
 	public void betreten() {
 		istEsBetreten = true;
 		wurdeBetreten = true;
-		repaint();
+
+		setText("X");
 	}
 
 	public void verlassen() {
 		istEsBetreten = false;
+		setText("");
 	}
+
 }

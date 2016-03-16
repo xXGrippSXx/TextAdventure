@@ -5,6 +5,7 @@ import java.util.List;
 import javax.swing.JFrame;
 
 public class WeltKarte extends JFrame {
+	private Gelaende welchesGelaendeWurdeBetreten;
 
 	private List<List<Gelaende>> ort;
 	private Movement m;
@@ -53,7 +54,12 @@ public class WeltKarte extends JFrame {
 	public void neuePosition(int positionX, int positionY) {
 
 		Gelaende neuePosition = ort.get(positionY).get(positionX);
+		if (welchesGelaendeWurdeBetreten != null) {
+			welchesGelaendeWurdeBetreten.verlassen();
+		}
+
 		neuePosition.betreten();
+		welchesGelaendeWurdeBetreten = neuePosition;
 
 	}
 }
