@@ -27,6 +27,7 @@ public class Gelaende extends JLabel {
 	public void betreten() {
 		istEsBetreten = true;
 		wurdeBetreten = true;
+		repaint();
 	}
 
 	public void verlassen() {
