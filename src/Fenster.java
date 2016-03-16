@@ -28,7 +28,7 @@ public class Fenster extends JFrame implements ActionListener, KeyListener {
 	public JButton[] angebote;
 	public static final int Angebote = 3;
 	public static final String[] preise = { "5", "15", "20" };
-	public static final String[] text = { ".\\wood_sword.png", ".\\iron_sword.png", ".\\diamond_sword.png" };
+	public static final String[] text = { ".\\wood_sword.png", ".\\iron_sword.png", ".\\diamond_" + "sword.png" };
 	public static final boolean[] schwerter = { false, false, false };
 	static int CASH = 0;
 	boolean shop = false;
