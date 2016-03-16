@@ -23,6 +23,8 @@ public class Farben {
 			return Color.BLACK;
 		case Ziel:
 			return Color.WHITE;
+		case Ereignis:
+			return Color.RED;
 		default:
 			return null;
 		}

@@ -9,6 +9,9 @@ public class Spiel {
 
 	int x;
 	int y;
+	int koordinateZielX;
+	int koordinateZielY;
+
 	public static boolean g = false;
 	String map;
 
@@ -58,6 +61,9 @@ public class Spiel {
 				if (temp2 == GelaendeTyp.Start) {
 					x = a;
 					y = b;
+				} else if (temp2 == GelaendeTyp.Ziel) {
+					koordinateZielX = a;
+					koordinateZielY = b;
 				}
 				m.setOrt(temp2, a, b);
 			}

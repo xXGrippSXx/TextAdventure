@@ -11,6 +11,10 @@ public class Movement {
 	String Top, Left, Right, Bot, Richtung;
 	GelaendeTyp AktuellesGebiet = GelaendeTyp.Start;
 	GelaendeTyp[][] Ort = new GelaendeTyp[20][20];
+	int xStart;
+	int yStart;
+	int xZiel;
+	int yZiel;
 
 	public void setGebiet(int a, int b) {
 		AktuellesGebiet = getOrt(a, b);
@@ -25,9 +29,13 @@ public class Movement {
 		if (temp2 == GelaendeTyp.Start) {
 			x = b;
 			y = a;
+			xStart = b;
+			yStart = a;
 			System.out.println("START AT " + x + "," + y);
+		} else if (temp2 == GelaendeTyp.Ziel) {
+			xZiel = b;
+			yZiel = a;
 		}
-
 	}
 
 	public void setX(int a) {
@@ -126,6 +134,9 @@ public class Movement {
 			case Weg:
 				System.out.println("Du befindest dich auf einem weiterem Weg!");
 				TopPassierbar = 1;
+			case Ereignis:
+				System.out.println("Du befindest dich auf einem Ereignisfeld");
+				TopPassierbar = 1;
 				break;
 			}
 		} else if (getGebiet() != GelaendeTyp.Weg) {
@@ -156,6 +167,10 @@ public class Movement {
 					break;
 				case Hoehle:
 					System.out.println("Du befindest dich immer noch in einem Verlieﬂ!");
+					TopPassierbar = 1;
+					break;
+				case Ereignis:
+					System.out.println("Du befindest dich immer noch auf einem Ereignisfeld!");
 					TopPassierbar = 1;
 					break;
 				case Ziel:
@@ -229,6 +244,10 @@ public class Movement {
 				System.out.println("Du befindest dich auf einem weiterem Weg!");
 				LeftPassierbar = 1;
 				break;
+			case Ereignis:
+				System.out.println("Du befindest dich auf einem Ereignisfeld!");
+				LeftPassierbar = 1;
+				break;
 			}
 		} else if (getGebiet() != GelaendeTyp.Weg) {
 			if (getZiel(getPositionY(), getPositionX() - 1).equals(getGebiet())
@@ -258,6 +277,10 @@ public class Movement {
 					break;
 				case Hoehle:
 					System.out.println("Du befindest dich immer noch in einem Verlieﬂ!");
+					LeftPassierbar = 1;
+					break;
+				case Ereignis:
+					System.out.println("Du befindest dich immer noch auf einem Ereignisfeld!");
 					LeftPassierbar = 1;
 					break;
 				case Ziel:
@@ -327,6 +350,10 @@ public class Movement {
 				System.out.println("Du befindest dich auf einem weiterem Weg!");
 				RightPassierbar = 1;
 				break;
+			case Ereignis:
+				System.out.println("Du befindest dich auf einem Ereignisfeld!");
+				RightPassierbar = 1;
+				break;
 			}
 		} else if (getGebiet() != GelaendeTyp.Weg) {
 			if (getZiel(getPositionY(), getPositionX() + 1).equals(getGebiet())
@@ -356,6 +383,10 @@ public class Movement {
 					break;
 				case Hoehle:
 					System.out.println("Du befindest dich immer noch in einem Verlieﬂ!");
+					RightPassierbar = 1;
+					break;
+				case Ereignis:
+					System.out.println("Du befindest dich immer noch auf einem Ereignisfeld!");
 					RightPassierbar = 1;
 					break;
 				case Ziel:
@@ -425,6 +456,9 @@ public class Movement {
 				System.out.println("Du befindest dich auf einem weiterem Weg!");
 				BotPassierbar = 1;
 				break;
+			case Ereignis:
+				System.out.println("Du befindest dich auf einem Ereignisfeld!");
+				break;
 			}
 		} else if (getGebiet() != GelaendeTyp.Weg) {
 			if (getZiel(getPositionY() + 1, getPositionX()).equals(getGebiet())
@@ -456,6 +490,9 @@ public class Movement {
 					System.out.println("Du befindest dich immer noch in einem Verlieﬂ!");
 					BotPassierbar = 1;
 					break;
+				case Ereignis:
+					System.out.println("Du befindest dich immer noch auf einem Ereignisfeld!");
+					break;
 				case Ziel:
 					JOptionPane.showMessageDialog(null, "Du hast den Ausgang gefunden!");
 					System.exit(0);
@@ -479,6 +516,18 @@ public class Movement {
 			AktuellesGebiet = getOrt(getPositionY(), getPositionX());
 		}
 		System.out.println("BotPassierbar: " + BotPassierbar);
+	}
+
+	public void geheStart() {
+
+		getOrt(xStart, yStart);
+		System.out.println("Du befindest dich wieder am Start!");
+
+	}
+
+	public void geheZiel() {
+		getOrt(xZiel, yZiel);
+		System.out.println("Du befindest dich jetzt am Ziel!");
 	}
 
 }

@@ -190,6 +190,7 @@ public class Hauptmenu extends JFrame implements ActionListener {
 				@SuppressWarnings("unused")
 				Spiel spiel = new Spiel(0, music, ".\\musik", ".\\SAVE.txt");
 				this.setVisible(false);
+
 			} catch (Exception e1) {
 				e1.printStackTrace();
 				JOptionPane.showMessageDialog(null,

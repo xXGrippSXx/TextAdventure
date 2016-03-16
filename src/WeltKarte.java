@@ -75,6 +75,9 @@ public class WeltKarte extends JFrame {
 		if (gelaendeTyp.name() == "Weg") {
 			label.setToolTipText("Weg");
 		}
+		if (gelaendeTyp.name() == "Ereignis") {
+			label.setToolTipText("Ereignisfeld");
+		}
 		return label;
 
 	}

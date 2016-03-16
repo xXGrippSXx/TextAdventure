@@ -56,7 +56,6 @@ public class Fenster extends JFrame implements ActionListener, KeyListener {
 		@Override
 		public void run() {
 			sec++;
-			System.out.println(sec);
 			Text();
 		}
 	};
@@ -176,6 +175,9 @@ public class Fenster extends JFrame implements ActionListener, KeyListener {
 			Temp = "Berg";
 			color = Color.WHITE;
 			break;
+		case Ereignis:
+			Temp = "Ereignisfeld";
+			color = Color.RED;
 		}
 
 		if (Temp.equals("Höhle")) {
@@ -193,6 +195,18 @@ public class Fenster extends JFrame implements ActionListener, KeyListener {
 		} else {
 			if (soundPlayer.isPlaying()) {
 				soundPlayer.stop();
+			}
+		}
+
+		if (Temp.equals("Ereignisfeld")) {
+			if (!ef()) {
+				m.x = m.xStart;
+				m.y = m.yStart;
+				m.AktuellesGebiet = GelaendeTyp.Start;
+			} else {
+				m.x = m.xZiel;
+				m.y = m.yZiel;
+				m.AktuellesGebiet = GelaendeTyp.Ziel;
 			}
 		}
 
@@ -389,6 +403,15 @@ public class Fenster extends JFrame implements ActionListener, KeyListener {
 		boolean temp = false;
 		int rnd = (int) (Math.random() * 100);
 		if (rnd >= 25) {
+			temp = true;
+		}
+		return temp;
+	}
+
+	public static boolean ef() {
+		boolean temp = false;
+		int random = (int) (Math.random() * 100);
+		if (random >= 50) {
 			temp = true;
 		}
 		return temp;
