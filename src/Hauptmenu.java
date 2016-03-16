@@ -175,7 +175,18 @@ public class Hauptmenu extends JFrame implements ActionListener {
 		if (e.getSource() == start) {
 			try {
 				JOptionPane.showMessageDialog(null,
-						"Du bist Joel, ein Junge der ein ziemlicher Raufbold in der Schule ist.\nDoch als du dich umguckst merkst du, dass du weder zu Hause noch in der Schule oder an einem sonstigen dir bekanntem Ort bist.\nDir wird klar, dass du dich igenwo in einem kleinen Labyrinth befindest...\nund den Ausgang finden musst, damit du deine Familie wiedersehen kannst!\nAuf einmal wird es sehr hell und du erkennst einen riesigen Fernseher in der anderen Ecke des Raumes.\nDer Fernseher zeigt nichts an, er hat nur die Störung, die auftritt, wenn kein Signal besteht.\nDoch dann geht er an und du siehst einen Mann, der dir sagt, dass du für deine Taten in der Schule einige Aufgaben erfüllen musst, damit du dich besserst.\nDu weißt, dass du dein größtest Abenteurer vor dir hast, was du je erlebt hast und erleben wirst.\nDer Fernseher geht aus und du stürmst sofort nach draußen...\nDoch dann bemerkst du, dass es keine normalen Räume sondern Gebiete sind...",
+						"Du bist Joel, ein Junge der ein ziemlicher Raufbold in der Schule ist.\nDoch als du "
+								+ "dich umguckst merkst du, dass du weder zu Hause noch in der Schule oder an einem "
+								+ "sonstigen dir bekanntem Ort bist.\nDir wird klar, dass du dich igenwo in einem kleinen "
+								+ "Labyrinth befindest...\nund den Ausgang finden musst, damit du deine Familie "
+								+ "wiedersehen kannst!\nAuf einmal wird es sehr hell und du erkennst einen riesigen "
+								+ "Fernseher in der anderen Ecke des Raumes.\nDer Fernseher zeigt nichts an, er hat nur "
+								+ "die Störung, die auftritt, wenn kein Signal besteht.\nDoch dann geht er an und du "
+								+ "siehst einen Mann, der dir sagt, dass du für deine Taten in der Schule einige Aufgaben"
+								+ " erfüllen musst, damit du dich besserst.\nDu weißt, dass du dein größtest Abenteurer"
+								+ " vor dir hast, was du je erlebt hast und erleben wirst.\nDer Fernseher geht aus und"
+								+ " du stürmst sofort nach draußen...\nDoch dann bemerkst du, dass es keine normalen "
+								+ "Räume sondern Gebiete sind...",
 						"Ziel des Spiels", JOptionPane.INFORMATION_MESSAGE);
 				/* new Vorgeschichte().anzeigen(); */ // WICHTIG FÜR STORY,
 				// SONST WIRD SIE NICHT
