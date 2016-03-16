@@ -4,6 +4,10 @@ public class Farben {
 
 	public static Color getByGelaendeTyp(GelaendeTyp gelaendeTyp) {
 
+		if (gelaendeTyp == null) {
+			return null;
+		}
+
 		switch (gelaendeTyp) {
 		case Start:
 			return Color.CYAN;

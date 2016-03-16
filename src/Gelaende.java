@@ -1,3 +1,5 @@
+import java.awt.Color;
+
 import javax.swing.JLabel;
 
 public class Gelaende extends JLabel {
@@ -6,11 +8,11 @@ public class Gelaende extends JLabel {
 
 	public Gelaende(GelaendeTyp gelaendeTyp) {
 		this.typ = gelaendeTyp;
+		setToolTipText(typ.name());
 	}
 
 	@Override
-	public String getToolTipText() {
-		return typ.name();
+	public Color getBackground() {
+		return Farben.getByGelaendeTyp(typ);
 	}
-
 }
