@@ -29,6 +29,7 @@ public class Hauptmenu extends JFrame implements ActionListener {
 	private static final String AC_Mittel = "codeEingeben4";
 	private static final String AC_Leicht = "codeEingeben5";
 	private static final String AC_KARTE = "codeEingeben6";
+	private static final String AC_INFO = "codeEingeben7";
 	static Movement m;
 	public JPanel p;
 	public JButton start;
@@ -95,6 +96,14 @@ public class Hauptmenu extends JFrame implements ActionListener {
 		menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, ActionEvent.ALT_MASK));
 		menuItem.getAccessibleContext().setAccessibleDescription("This doesnt really do anything");
 		menuItem.setActionCommand(AC_Code);
+		menuItem.addActionListener(this);
+		p.add(menuItem);
+		menu.add(menuItem);
+
+		menuItem = new JMenuItem("Informationen");
+		menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_3, ActionEvent.ALT_MASK));
+		menuItem.getAccessibleContext().setAccessibleDescription("This doesnt really do anything");
+		menuItem.setActionCommand(AC_INFO);
 		menuItem.addActionListener(this);
 		p.add(menuItem);
 		menu.add(menuItem);
@@ -177,19 +186,25 @@ public class Hauptmenu extends JFrame implements ActionListener {
 			} catch (Exception e1) {
 				e1.printStackTrace();
 				JOptionPane.showMessageDialog(null,
-						"ERROR while Loading... \nPlease Try again later, or send an email to\ninfo.javaprograms@gmail.com\nor\ngrippshd@gmail.com");
+						"ERROR while Loading... \nPlease send an email to\ninfo.javaprograms@gmail.com");
 			}
 		}
 
 		if (e.getSource() == laden) {
 			JOptionPane.showMessageDialog(null,
-					"Das Ziel des Spieles ist es, das Ziel auf einer 20 x 20 großen Karte zu finden, indem du die Pfeiltasten oder Knöpfe im Fenster benutzt.\nWenn Monster auf dem Weg auftauchen, müssen sie besiegt werden, damit das Ziel erreicht werden kann.\nHierbei musst du darauf achten, dass du nur von Wegen in Gebiete, oder dich in den Gebieten bewegen kannst.",
+					"Das Ziel des Spieles ist es, das Ziel auf einer 20 x 20 großen Karte zu finden, indem du die "
+							+ "Pfeiltasten oder Knöpfe im Fenster benutzt.\nWenn Monster auf dem Weg auftauchen, müssen"
+							+ " sie besiegt werden, damit das Ziel erreicht werden kann.\nHierbei musst du darauf achten,"
+							+ " dass du nur von Wegen in Gebiete, oder dich in den Gebieten bewegen kannst.",
 					"Ziel des Spiels", JOptionPane.INFORMATION_MESSAGE);
 		}
 
 		if (e.getSource() == credi) {
 			JOptionPane.showMessageDialog(null,
-					"TextAdventure\nEin Spiel der ProgrammierAG des Alstergymnasiums H.-U.\nMegakrasse Musik ausgewählt von Jan Stegemann\nMultikontroverse Matrizen von David Kowalk\nMassive Maps von Tim Wolf und Jonas Matenia\nPerfekte Programmierung von Jonas Kühn\nLustiges Layout von Kevin Altenburg\nIdeale Idee von Hr. & Fr. Stichel",
+					"TextAdventure\nEin Spiel der ProgrammierAG des Alstergymnasiums H.-U.\nMegakrasse Musik"
+							+ " ausgewählt von Jan Stegemann\nMultikontroverse Matrizen von David Kowalk\nMassive Maps"
+							+ " von Tim Wolf und Jonas Matenia\nPerfekte Programmierung von Jonas Kühn\nLustiges Layout "
+							+ "von Kevin Altenburg\nIdeale Idee von Hr. & Fr. Stichel",
 					"CREDITS", JOptionPane.INFORMATION_MESSAGE);
 		}
 		if (e.getSource() == optionen) {
@@ -199,8 +214,8 @@ public class Hauptmenu extends JFrame implements ActionListener {
 				this.setVisible(false);
 			} catch (Exception e1) {
 				e1.printStackTrace();
-				JOptionPane.showMessageDialog(null,
-						"ERROR while Loading... \nPlease Try again later, or send an email to\ninfo.javaprograms@gmail.com");
+				JOptionPane.showMessageDialog(null, "ERROR while Loading... \nPlease Try again later, or send an email "
+						+ "to\ninfo.javaprograms@gmail.com");
 
 			}
 		}
@@ -296,6 +311,11 @@ public class Hauptmenu extends JFrame implements ActionListener {
 			new KartenErsteller();
 
 		}
+		if (e.getActionCommand().equals(AC_INFO)) {
+
+			new Informationen();
+
+		}
 	}
 
 	private void meldeAktuelleSchwierigkeit() {
@@ -313,14 +333,3 @@ public class Hauptmenu extends JFrame implements ActionListener {
 	}
 
 }
-// Theres something the way you do, theres something the way you move!!
-// oh oh oh oh oh oh oh oh oh oh oh oh
-// Theres something the way you move, theres something the way you do!!
-// oh oh oh oh oh oh oh oh oh oh oh oh
-// BUT NOW LADYS AND GENTLEMAN. HERE IS THE ANSWER TO ANY QUESTION IN THE
-// UNIVERSE!
-// fourty two..... 42
-// 4+2 = 6
-// 6/2 Schreibweisen = 3
-// 3 Ecken von einem Dreieck
-// Dreieck = ILLUMINATI
