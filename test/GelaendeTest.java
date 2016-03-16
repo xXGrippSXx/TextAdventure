@@ -1,4 +1,8 @@
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotNull;
+
+import java.awt.Color;
 
 import org.junit.Test;
 
@@ -15,5 +19,28 @@ public class GelaendeTest {
 		Gelaende gelaende = new Gelaende(GelaendeTyp.Berg);
 
 		assertEquals(GelaendeTyp.Berg.name(), gelaende.getToolTipText());
+	}
+
+	@Test
+	public void gelaendeIstSchwarzVorBetreten() throws Exception {
+		Gelaende gelaende = new Gelaende(GelaendeTyp.Berg);
+		assertEquals(Color.BLACK, gelaende.getBackground());
+	}
+
+	@Test
+	public void gelaendeIstNichtSchwarzNachBetreten() throws Exception {
+		Gelaende gelaende = new Gelaende(GelaendeTyp.Berg);
+		gelaende.betreten();
+		assertNotEquals(Color.BLACK, gelaende.getBackground());
+		assertNotNull(gelaende.getBackground());
+	}
+
+	@Test
+	public void gelaendeIstNichtWiederSchwarzNachBetretenUndVerlassen() throws Exception {
+		Gelaende gelaende = new Gelaende(GelaendeTyp.Berg);
+		gelaende.betreten();
+		gelaende.verlassen();
+		assertNotEquals(Color.BLACK, gelaende.getBackground());
+		assertNotNull(gelaende.getBackground());
 	}
 }

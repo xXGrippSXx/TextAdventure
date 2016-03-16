@@ -46,11 +46,6 @@ public class WeltKarte extends JFrame {
 
 		Gelaende label = new Gelaende(gelaendeTyp);
 
-		label.setBackground(Farben.getByGelaendeTyp(gelaendeTyp));
-		label.setOpaque(true);
-
-		// TODO
-
 		return label;
 
 	}
@@ -61,5 +56,4 @@ public class WeltKarte extends JFrame {
 		neuePosition.setText("X");
 
 	}
-
 }
